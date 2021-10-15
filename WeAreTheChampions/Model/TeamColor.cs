@@ -13,8 +13,8 @@ namespace WeAreTheChampions.Model
         public int Id { get; set; }
         public int TeamId { get; set; }
         public string ColorId { get; set; }
-        public virtual Color Colors { get; set; }
-       
+        public virtual Color Color { get; set; }
+        public virtual Team Team { get; set; }
 
     }
 }

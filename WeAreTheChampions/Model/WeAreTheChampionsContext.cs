@@ -13,6 +13,10 @@ namespace WeAreTheChampions.Model
         {
                 
         }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Player>().Property(x => x.PlayerName).HasMaxLength(50);
+        //} fluentApı araştır.
         public DbSet<Color> Colors { get; set; }
         public DbSet<Match> Matches { get; set; }
         public DbSet<Player> Players { get; set; }

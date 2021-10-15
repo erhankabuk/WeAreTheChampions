@@ -11,22 +11,14 @@ namespace WeAreTheChampions.Model
      public class Match
     {        
         public int Id { get; set; }
-        public DateTime MatchTime { get; set; }
-        [Required]
-        public int Team1Id { get; set; }
-        [Required]
-        public int Team2Id { get; set; }
+        public DateTime MatchTime { get; set; }       
+        public int? Team1Id { get; set; }//Nullable gereksiz 
+        public virtual Team Team1 { get; set; }        
+        public int? Team2Id { get; set; } 
+        public virtual Team Team2 { get; set; }
         public int? Score1 { get; set; }
-        public int? Score2 { get; set; }
-        public virtual ICollection<Team> Teams { get; set; } = new HashSet<Team>();
-
-        public enum Result
-        {
-            Berabere=0,Team1=1,Team2=2,
-            //BelliDeğil = null
-        }
-
-
+        public int? Score2 { get; set; }       
+        public Result? Result { get; set; }// "?" => nullable
 
     }
 }

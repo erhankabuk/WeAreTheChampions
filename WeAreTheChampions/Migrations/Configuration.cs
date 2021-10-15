@@ -25,14 +25,15 @@
             var team1 = new Team()
             {
                 TeamName = "Team1",
-                Player = new List<Player>() {
+                Players = new List<Player>() {
                     new Player() { PlayerName = "Player1" },
                     new Player() { PlayerName = "Player2" },
                     new Player() { PlayerName = "Player3" },
                     new Player() { PlayerName = "Player4" },
                     new Player() { PlayerName = "Player5" }
                 },
-                TeamColor = new TeamColor() { Colors = new Color() { ColorName = "Color1", Red = 150, Green = 150, Blue = 150 } }
+                TeamColors = new List<TeamColor>() { new TeamColor() { Color = new Color() { ColorName = "Color1", Red = 150, Green = 150, Blue = 150 }}
+        }
 
 
             };
@@ -43,14 +44,16 @@
             var team2 = new Team()
             {
                 TeamName = "Team2",
-                Player = new List<Player>() {
+                Players = new List<Player>() {
                     new Player() { PlayerName = "Player11" },
                     new Player() { PlayerName = "Player22" },
                     new Player() { PlayerName = "Player33" },
                     new Player() { PlayerName = "Player44" },
                     new Player() { PlayerName = "Player55" }
                 },
-                TeamColor = new TeamColor() { Colors = new Color() { ColorName = "Color2", Red = 250, Green = 250, Blue = 250 } }
+                TeamColors = new List<TeamColor>() { new TeamColor() { Color = new Color() { ColorName = "Color1", Red = 150, Green = 150, Blue = 150 }}
+        }
+
 
 
             };

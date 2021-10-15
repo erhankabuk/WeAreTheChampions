@@ -72,10 +72,23 @@
     <Compile Include="Migrations\202110151322354_ilk.designer.cs">
       <DependentUpon>202110151322354_ilk.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110151954067_second.cs" />
+    <Compile Include="Migrations\202110151954067_second.designer.cs">
+      <DependentUpon>202110151954067_second.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110152025021_fourth.cs" />
+    <Compile Include="Migrations\202110152025021_fourth.designer.cs">
+      <DependentUpon>202110152025021_fourth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110152210068_fifth.cs" />
+    <Compile Include="Migrations\202110152210068_fifth.designer.cs">
+      <DependentUpon>202110152210068_fifth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Color.cs" />
     <Compile Include="Model\Match.cs" />
     <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\Result.cs" />
     <Compile Include="Model\Team.cs" />
     <Compile Include="Model\TeamColor.cs" />
     <Compile Include="Model\WeAreTheChampionsContext.cs" />
@@ -89,6 +102,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110151322354_ilk.resx">
       <DependentUpon>202110151322354_ilk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110151954067_second.resx">
+      <DependentUpon>202110151954067_second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110152025021_fourth.resx">
+      <DependentUpon>202110152025021_fourth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110152210068_fifth.resx">
+      <DependentUpon>202110152210068_fifth.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

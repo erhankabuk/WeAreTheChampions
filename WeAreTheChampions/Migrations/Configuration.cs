@@ -22,6 +22,7 @@
             //  to avoid creating duplicate seed data.
             if (context.Teams.Any()) return;
 
+           
             var team1 = new Team()
             {
                 TeamName = "Team1",

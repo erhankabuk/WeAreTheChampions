@@ -16,8 +16,10 @@ namespace WeAreTheChampions
         WeAreTheChampionsContext db = new WeAreTheChampionsContext();
 
         public Form1()
-        {//Migration yap
+        {
             InitializeComponent();
+            dgvMatches.AutoGenerateColumns = false;
+
             dgvPlayers.AutoGenerateColumns = false;
             //dgvColors.AutoGenerateColumns = false;
             dgvTeams.AutoGenerateColumns = false;
@@ -28,6 +30,7 @@ namespace WeAreTheChampions
         /// </summary>
         private void LoadAllDatabase()
         {
+            dgvMatches.DataSource = db.Matches.ToList();
             dgvPlayers.DataSource = db.Players.ToList();
             dgvColors.DataSource = db.Colors.ToList();
             dgvTeams.DataSource = db.Teams.ToList();
@@ -119,7 +122,9 @@ namespace WeAreTheChampions
             db.SaveChanges();
             dgvColors.DataSource = db.Colors.ToList();
         }
-
+        /// <summary>
+        /// Check a Player does member of a Team
+        /// </summary>  
         private void chkTeamMember_Click(object sender, EventArgs e)
         {
             if (chkTeamMember.Checked == false)
@@ -221,8 +226,17 @@ namespace WeAreTheChampions
             db.SaveChanges();
             dgvPlayers.DataSource = db.Players.ToList();
         }
-
-
+        /// <summary>
+        /// Delete a Match 
+        /// </summary>
+        private void btnDeleteMatch_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedMatch = dgvMatches.SelectedRows[0];
+            Match match = (Match)selectedMatch.DataBoundItem;
+            db.Matches.Remove(match);
+            db.SaveChanges();
+            dgvMatches.DataSource = db.Matches.ToList();
+        }     
         private void btnAddNewTeam_Click(object sender, EventArgs e)
         {
             TeamCreate frmTeam = new TeamCreate(db);
@@ -234,13 +248,21 @@ namespace WeAreTheChampions
             TeamPlayers frmAddNewPlayer = new TeamPlayers(db);
             frmAddNewPlayer.ShowDialog();
         }
-
         private void btnAddTeamColor_Click(object sender, EventArgs e)
         {
             FrmTeamColor frmTeamColor = new FrmTeamColor(db);
             frmTeamColor.ShowDialog();
         }
-
+        private void btnAddNewMatch_Click(object sender, EventArgs e)
+        {
+            TeamMatches frmTeamMatches = new TeamMatches(db);
+            frmTeamMatches.ShowDialog();
+        }
+        private void btnEditMatch_Click(object sender, EventArgs e)
+        {
+            TeamEditMatch frmEditMatch = new TeamEditMatch(db);
+            frmEditMatch.ShowDialog();           
+        }
 
     }
 }

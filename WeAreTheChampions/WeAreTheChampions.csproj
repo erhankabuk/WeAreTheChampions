@@ -82,6 +82,10 @@
     <Compile Include="Migrations\202110172036266_sixth.designer.cs">
       <DependentUpon>202110172036266_sixth.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110191146347_seventh.cs" />
+    <Compile Include="Migrations\202110191146347_seventh.designer.cs">
+      <DependentUpon>202110191146347_seventh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Color.cs" />
     <Compile Include="Model\Match.cs" />
@@ -103,6 +107,18 @@
     </Compile>
     <Compile Include="TeamColor.Designer.cs">
       <DependentUpon>TeamColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeamEditMatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamEditMatch.Designer.cs">
+      <DependentUpon>TeamEditMatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeamMatches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamMatches.Designer.cs">
+      <DependentUpon>TeamMatches.cs</DependentUpon>
     </Compile>
     <Compile Include="TeamPlayers.cs">
       <SubType>Form</SubType>
@@ -128,6 +144,9 @@
     <EmbeddedResource Include="Migrations\202110172036266_sixth.resx">
       <DependentUpon>202110172036266_sixth.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110191146347_seventh.resx">
+      <DependentUpon>202110191146347_seventh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -142,6 +161,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TeamColor.resx">
       <DependentUpon>TeamColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamEditMatch.resx">
+      <DependentUpon>TeamEditMatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamMatches.resx">
+      <DependentUpon>TeamMatches.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeamPlayers.resx">
       <DependentUpon>TeamPlayers.cs</DependentUpon>

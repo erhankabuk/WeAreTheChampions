@@ -20,12 +20,16 @@ namespace WeAreTheChampions
             InitializeComponent();
             LoadAllData();
         }
-
+        /// <summary>
+        /// Load All Data
+        /// </summary>
         private void LoadAllData()
         {
             dgvTeamCreate.DataSource = db.Teams.ToList();
         }
-
+        /// <summary>
+        /// Create a New Team with Team Name
+        /// </summary>
         private void btnCreateNewTeam_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedTeam = dgvTeamCreate.SelectedRows[0];
@@ -44,20 +48,16 @@ namespace WeAreTheChampions
             db.Teams.Add(new Team() { TeamName = teamName });
             db.SaveChanges();
             dgvTeamCreate.DataSource = db.Teams.ToList();
-
         }
-
-        private void btnDeleteTeam_Click(object sender, EventArgs e)
-        {
-            DataGridViewRow selected = dgvTeamCreate.SelectedRows[0];
-            Team team = (Team)selected.DataBoundItem;
-            db.Teams.Remove(team);
-            db.SaveChanges();
-            dgvTeamCreate.DataSource = db.Teams.ToList();
-        }
-
+        /// <summary>
+        /// Edit Team Name
+        /// </summary>      
         private void btnEditTeamName_Click(object sender, EventArgs e)
         {
+            DataGridViewRow selectedTeam = dgvTeamCreate.SelectedRows[0];
+            Team team = (Team)selectedTeam.DataBoundItem;
+            string editingTeamName = team.TeamName;
+
             if (btnEditTeamName.Text == "Edit Team Name")
             {
                 if (dgvTeamCreate.SelectedRows.Count == 0)
@@ -65,30 +65,43 @@ namespace WeAreTheChampions
                     MessageBox.Show("Please Select a Team From Table");
                     return;
                 }
+                txtCreateTeam.Text = editingTeamName;
                 btnEditTeamName.Text = "Save Changes";
+                btnCreateNewTeam.Enabled = false;
+                btnDeleteTeam.Enabled = false;
             }
             else
-            {//Start 
-                DataGridViewRow selected = dgvTeamCreate.SelectedRows[0];
-                Team team = (Team)selected.DataBoundItem;
-                txtCreateTeam.Text = team.TeamName;
-                string teamName = txtCreateTeam.Text.Trim();
-                if (teamName == string.Empty)
+            {
+                if (txtCreateTeam.Text == string.Empty)
                 {
                     MessageBox.Show("Please Enter a Team Name");
                     return;
                 }
-                if (db.Teams.Any(x => x.TeamName == teamName&&x.Id!=team.Id))
+                if (db.Teams.Any(x => x.TeamName == txtCreateTeam.Text))
                 {
-                    MessageBox.Show($"{teamName} is already existed. Try Another Team Name");
+                    MessageBox.Show($"{txtCreateTeam.Text} is already existed. Try Another Team Name");
                     return;
                 }
                 team.TeamName = txtCreateTeam.Text.Trim();
                 db.SaveChanges();
-                btnEditTeamName.Text = "Edit Team Name";
                 dgvTeamCreate.DataSource = db.Teams.ToList();
+                btnEditTeamName.Text = "Edit Team Name";
+                btnCreateNewTeam.Enabled = true;
+                btnDeleteTeam.Enabled = true;
+
             }
 
+        }
+        /// <summary>
+        /// Delete a Team
+        /// </summary>
+        private void btnDeleteTeam_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selected = dgvTeamCreate.SelectedRows[0];
+            Team team = (Team)selected.DataBoundItem;
+            db.Teams.Remove(team);
+            db.SaveChanges();
+            dgvTeamCreate.DataSource = db.Teams.ToList();
         }
     }
 }

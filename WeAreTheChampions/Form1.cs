@@ -18,10 +18,13 @@ namespace WeAreTheChampions
         public Form1()
         {//Migration yap
             InitializeComponent();
+            dgvPlayers.AutoGenerateColumns = false;
+            //dgvColors.AutoGenerateColumns = false;
+            dgvTeams.AutoGenerateColumns = false;
             LoadAllDatabase();
         }
         /// <summary>
-        ///  Load all datas
+        ///  Load all data
         /// </summary>
         private void LoadAllDatabase()
         {
@@ -29,7 +32,6 @@ namespace WeAreTheChampions
             dgvColors.DataSource = db.Colors.ToList();
             dgvTeams.DataSource = db.Teams.ToList();
             cmbTeamList.DataSource = db.Teams.ToList();
-            cmbTeamName.DataSource = db.Teams.ToList();
         }
 
         /// <summary>
@@ -85,17 +87,17 @@ namespace WeAreTheChampions
             DataGridViewRow selectedColor = dgvColors.SelectedRows[0];
             Model.Color editingColor = (Model.Color)selectedColor.DataBoundItem;
             string editedColorName = txtColorName.Text.Trim();
-            if (db.Colors.Any(x => x.ColorName == editedColorName))
+
+            if (db.Colors.Any(x => x.ColorName == editedColorName && x.Red == nudRed.Value && x.Green == nudGreen.Value && x.Blue == nudBlue.Value))
             {
-                MessageBox.Show($"{editedColorName} is already exists in database. Try another Color Name");
+                MessageBox.Show($"{editedColorName}, Red{nudRed.Value}, Green{nudGreen.Value}, Blue{nudBlue.Value} is already exists in database.");
                 return;
             }
             if (editedColorName == string.Empty)
             {
-                MessageBox.Show("Please Enter a Player Name");
+                MessageBox.Show("Please Enter a Color Name");
                 return;
             }
-
             editingColor.ColorName = editedColorName;
             editingColor.Red = (int)nudRed.Value;
             editingColor.Green = (int)nudGreen.Value;
@@ -118,7 +120,12 @@ namespace WeAreTheChampions
             dgvColors.DataSource = db.Colors.ToList();
         }
 
-
+        private void chkTeamMember_Click(object sender, EventArgs e)
+        {
+            if (chkTeamMember.Checked == false)
+                cmbTeamList.Enabled = false;
+            else cmbTeamList.Enabled = true;
+        }
         /// <summary>
         /// Add a new player and team
         /// </summary>
@@ -135,8 +142,15 @@ namespace WeAreTheChampions
                 MessageBox.Show($"{playerName} is already existed in database. Try another Player Name");
                 return;
             }
+
             Team team = (Team)cmbTeamList.SelectedItem;
-            db.Players.Add(new Player() { PlayerName = playerName, TeamId = team.Id });            
+            Player player = new Player();
+            player.PlayerName = playerName;
+            if (chkTeamMember.Checked == false)
+                db.Players.Add(new Player() { PlayerName = playerName });
+            else
+                db.Players.Add(new Player() { PlayerName = playerName, TeamId = team.Id });
+
             db.SaveChanges();
             txtPlayerName.Clear();
             dgvPlayers.DataSource = db.Players.ToList();
@@ -202,27 +216,31 @@ namespace WeAreTheChampions
             DataGridViewRow selectedPlayer = dgvPlayers.SelectedRows[0];
             Player deletedPlayer = (Player)selectedPlayer.DataBoundItem;
             db.Players.Remove(deletedPlayer);
-            //datagridview focus.
-            dgvPlayers.Focus();
+            //datagridview focus.comboBox1.SelectedIndex = comboBox1.Items.Count - 1;
+            // dgvPlayers.=dgvPlayers.RowCount-1;
             db.SaveChanges();
             dgvPlayers.DataSource = db.Players.ToList();
         }
 
-        
+
         private void btnAddNewTeam_Click(object sender, EventArgs e)
         {
-
-            AddNewTeam frmAddNewTeam = new AddNewTeam(db);
-            frmAddNewTeam.ShowDialog();
+            TeamCreate frmTeam = new TeamCreate(db);
+            frmTeam.ShowDialog();
 
         }
         private void btnAddPlayer_Click(object sender, EventArgs e)
         {
-            if (cmbTeamName.SelectedItem == null)
-            {
-                MessageBox.Show("Please Add a New Team");
-                return;
-            }
+            TeamPlayers frmAddNewPlayer = new TeamPlayers(db);
+            frmAddNewPlayer.ShowDialog();
         }
+
+        private void btnAddTeamColor_Click(object sender, EventArgs e)
+        {
+            FrmTeamColor frmTeamColor = new FrmTeamColor(db);
+            frmTeamColor.ShowDialog();
+        }
+
+
     }
 }

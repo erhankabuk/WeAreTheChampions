@@ -20,5 +20,11 @@ namespace WeAreTheChampions.Model
         public int? Score2 { get; set; }       
         public Result? Result { get; set; }// "?" => nullable
 
+        //public string TutarTL =>$"{Tutar():N2}₺ ";
+        //public double Tutar()
+        //{
+        //    return birim * adet;
+        //}
+
     }
 }

@@ -56,12 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddNewTeam.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddNewTeam.Designer.cs">
-      <DependentUpon>AddNewTeam.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +78,10 @@
     <Compile Include="Migrations\202110152210068_fifth.designer.cs">
       <DependentUpon>202110152210068_fifth.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110172036266_sixth.cs" />
+    <Compile Include="Migrations\202110172036266_sixth.designer.cs">
+      <DependentUpon>202110172036266_sixth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Color.cs" />
     <Compile Include="Model\Match.cs" />
@@ -94,9 +92,24 @@
     <Compile Include="Model\WeAreTheChampionsContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddNewTeam.resx">
-      <DependentUpon>AddNewTeam.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="TeamCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamCreate.Designer.cs">
+      <DependentUpon>TeamCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeamColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamColor.Designer.cs">
+      <DependentUpon>TeamColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeamPlayers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamPlayers.Designer.cs">
+      <DependentUpon>TeamPlayers.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +125,9 @@
     <EmbeddedResource Include="Migrations\202110152210068_fifth.resx">
       <DependentUpon>202110152210068_fifth.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110172036266_sixth.resx">
+      <DependentUpon>202110172036266_sixth.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -121,6 +137,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TeamCreate.resx">
+      <DependentUpon>TeamCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamColor.resx">
+      <DependentUpon>TeamColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamPlayers.resx">
+      <DependentUpon>TeamPlayers.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

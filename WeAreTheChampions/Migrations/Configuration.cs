@@ -22,9 +22,9 @@
             //  to avoid creating duplicate seed data.
             if (context.Teams.Any()) return;
 
-           
+
             var team1 = new Team()
-            {
+            {                                
                 TeamName = "Team1",
                 Players = new List<Player>() {
                     new Player() { PlayerName = "Player1" },
@@ -44,6 +44,7 @@
 
             var team2 = new Team()
             {
+                
                 TeamName = "Team2",
                 Players = new List<Player>() {
                     new Player() { PlayerName = "Player11" },

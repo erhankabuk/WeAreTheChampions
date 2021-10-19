@@ -68,7 +68,7 @@ namespace WeAreTheChampions
                 btnEditTeamName.Text = "Save Changes";
             }
             else
-            {//Start over
+            {//Start 
                 DataGridViewRow selected = dgvTeamCreate.SelectedRows[0];
                 Team team = (Team)selected.DataBoundItem;
                 txtCreateTeam.Text = team.TeamName;

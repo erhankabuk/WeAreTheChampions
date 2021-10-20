@@ -18,6 +18,7 @@ namespace WeAreTheChampions
         {
             this.db = db;            
             InitializeComponent();
+            dgvTeamPlayersinTeam.AutoGenerateColumns = false;
             LoadAllData();
         }
 

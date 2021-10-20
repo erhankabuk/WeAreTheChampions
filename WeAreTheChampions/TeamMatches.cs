@@ -18,6 +18,7 @@ namespace WeAreTheChampions
         {
             this.db = db;
             InitializeComponent();
+            dgvCreateMatch.AutoGenerateColumns = false;
             LoadAllData();
         }
         /// <summary>
@@ -25,6 +26,7 @@ namespace WeAreTheChampions
         /// </summary>
         private void LoadAllData()
         {
+            dgvCreateMatch.DataSource = db.Matches.ToList();
             cmbTeam1inMatch.DataSource = db.Teams.ToList();
             cmbTeam2inMatch.DataSource = db.Teams.ToList();
         }
@@ -37,6 +39,24 @@ namespace WeAreTheChampions
             DateTime matchTime = dtpTime.Value;
             Team team1 = (Team)cmbTeam1inMatch.SelectedItem;
             Team team2 = (Team)cmbTeam2inMatch.SelectedItem;
+
+            if (team1==team2)
+            {
+                MessageBox.Show("Please Select Different Teams");
+                return;
+            }
+            if (db.Matches.Any(x=>x.Team1Id==team1.Id&&x.Team2Id==team2.Id&&x.MatchDate==matchDate.Date&&x.MatchTime==matchTime))
+            {
+                MessageBox.Show("This Match is already existed22.");
+                return;
+            }
+            /*
+            if (db.Matches.Any(x => x.Team1.TeamName == team1.TeamName&&x.Team2.TeamName==team2.TeamName&&x.MatchDate==matchDate&&x.MatchTime==matchTime));
+            {
+                MessageBox.Show("This Match already existed.");
+                return;
+            }
+            */
             db.Matches.Add(new Match()
             {
                 Team1 = team1,

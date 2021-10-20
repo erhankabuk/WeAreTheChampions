@@ -23,11 +23,19 @@ namespace WeAreTheChampions.Model
 
 
         public string Team1Name()
-        {            
+        {
+            if (Team1==null)
+            {
+                return string.Empty;
+            }
             return Team1.TeamName;
         }
         public string Team2Name()
         {
+            if (Team2==null)
+            {
+                return string.Empty;
+            }
             return Team2.TeamName;
         }
         public string MatchScoreFormat()

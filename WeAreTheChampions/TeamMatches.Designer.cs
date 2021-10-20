@@ -31,16 +31,21 @@ namespace WeAreTheChampions
         {
             this.TeamMatchMainTab = new System.Windows.Forms.TabControl();
             this.tabTeamMatch = new System.Windows.Forms.TabPage();
+            this.dtpTime = new System.Windows.Forms.DateTimePicker();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.dgvCreateMatch = new System.Windows.Forms.DataGridView();
             this.cmbTeam2inMatch = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbTeam1inMatch = new System.Windows.Forms.ComboBox();
             this.btnAddNewMatch = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpTime = new System.Windows.Forms.DateTimePicker();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeamMatchMainTab.SuspendLayout();
             this.tabTeamMatch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCreateMatch)).BeginInit();
@@ -82,9 +87,56 @@ namespace WeAreTheChampions
             this.tabTeamMatch.TabIndex = 2;
             this.tabTeamMatch.Text = "Match";
             // 
+            // dtpTime
+            // 
+            this.dtpTime.CustomFormat = "HH:mm ";
+            this.dtpTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dtpTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTime.Location = new System.Drawing.Point(377, 85);
+            this.dtpTime.Name = "dtpTime";
+            this.dtpTime.ShowUpDown = true;
+            this.dtpTime.Size = new System.Drawing.Size(203, 30);
+            this.dtpTime.TabIndex = 15;
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDate.Location = new System.Drawing.Point(374, 26);
+            this.dtpDate.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
+            this.dtpDate.MinDate = new System.DateTime(2021, 10, 19, 14, 35, 19, 0);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(206, 30);
+            this.dtpDate.TabIndex = 14;
+            this.dtpDate.Value = new System.DateTime(2021, 10, 19, 14, 35, 19, 0);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(304, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 25);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Time :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(304, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 25);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Date :";
+            // 
             // dgvCreateMatch
             // 
             this.dgvCreateMatch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCreateMatch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
             this.dgvCreateMatch.Location = new System.Drawing.Point(12, 221);
             this.dgvCreateMatch.MultiSelect = false;
             this.dgvCreateMatch.Name = "dgvCreateMatch";
@@ -146,46 +198,50 @@ namespace WeAreTheChampions
             this.label8.TabIndex = 4;
             this.label8.Text = "Team1 :";
             // 
-            // label2
+            // Column1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(304, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 25);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Time :";
+            this.Column1.DataPropertyName = "Team1TeamName";
+            this.Column1.HeaderText = "Team1";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 125;
             // 
-            // label3
+            // Column2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(304, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 25);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Date :";
+            this.Column2.DataPropertyName = "Team2TeamName";
+            this.Column2.HeaderText = "Team2";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 125;
             // 
-            // dtpDate
+            // Column3
             // 
-            this.dtpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(374, 26);
-            this.dtpDate.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
-            this.dtpDate.MinDate = new System.DateTime(2021, 10, 19, 14, 35, 19, 0);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(206, 30);
-            this.dtpDate.TabIndex = 14;
-            this.dtpDate.Value = new System.DateTime(2021, 10, 19, 14, 35, 19, 0);
+            this.Column3.DataPropertyName = "MatchDate";
+            this.Column3.HeaderText = "Date";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 125;
             // 
-            // dtpTime
+            // Column4
             // 
-            this.dtpTime.CustomFormat = "HH:mm ";
-            this.dtpTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dtpTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTime.Location = new System.Drawing.Point(377, 85);
-            this.dtpTime.Name = "dtpTime";
-            this.dtpTime.ShowUpDown = true;
-            this.dtpTime.Size = new System.Drawing.Size(203, 30);
-            this.dtpTime.TabIndex = 15;
+            this.Column4.DataPropertyName = "MatchTime";
+            this.Column4.HeaderText = "Time";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "MatchScore";
+            this.Column5.HeaderText = "Score";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 125;
             // 
             // TeamMatches
             // 
@@ -218,5 +274,10 @@ namespace WeAreTheChampions
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.DateTimePicker dtpTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

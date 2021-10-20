@@ -32,6 +32,8 @@ namespace WeAreTheChampions
             this.TeamColorMainTab = new System.Windows.Forms.TabControl();
             this.tabTeamColor = new System.Windows.Forms.TabPage();
             this.dgvTeamPlayersinTeam = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbTeamsinTeamPlayers = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbPlayersinTeamPlayers = new System.Windows.Forms.ComboBox();
@@ -78,7 +80,11 @@ namespace WeAreTheChampions
             // 
             // dgvTeamPlayersinTeam
             // 
+            this.dgvTeamPlayersinTeam.AllowUserToAddRows = false;
             this.dgvTeamPlayersinTeam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTeamPlayersinTeam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
             this.dgvTeamPlayersinTeam.Location = new System.Drawing.Point(12, 213);
             this.dgvTeamPlayersinTeam.MultiSelect = false;
             this.dgvTeamPlayersinTeam.Name = "dgvTeamPlayersinTeam";
@@ -89,6 +95,24 @@ namespace WeAreTheChampions
             this.dgvTeamPlayersinTeam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTeamPlayersinTeam.Size = new System.Drawing.Size(873, 272);
             this.dgvTeamPlayersinTeam.TabIndex = 8;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "PlayerName";
+            this.Column1.HeaderText = "Player Name";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "PlayerTeamName";
+            this.Column2.HeaderText = "Team";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 125;
             // 
             // cmbTeamsinTeamPlayers
             // 
@@ -137,7 +161,7 @@ namespace WeAreTheChampions
             this.btnAddNewPlayer.Name = "btnAddNewPlayer";
             this.btnAddNewPlayer.Size = new System.Drawing.Size(286, 55);
             this.btnAddNewPlayer.TabIndex = 2;
-            this.btnAddNewPlayer.Text = "Add New Player";
+            this.btnAddNewPlayer.Text = "Add-Edit New Player";
             this.btnAddNewPlayer.UseVisualStyleBackColor = true;
             this.btnAddNewPlayer.Click += new System.EventHandler(this.btnAddNewPlayer_Click);
             // 
@@ -178,5 +202,7 @@ namespace WeAreTheChampions
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dgvTeamPlayersinTeam;
         private System.Windows.Forms.ComboBox cmbTeamsinTeamPlayers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

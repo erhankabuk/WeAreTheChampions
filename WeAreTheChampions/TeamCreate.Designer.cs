@@ -34,6 +34,7 @@ namespace WeAreTheChampions
             this.txtCreateTeam = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvTeamCreate = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEditTeamName = new System.Windows.Forms.Button();
             this.btnDeleteTeam = new System.Windows.Forms.Button();
             this.btnCreateNewTeam = new System.Windows.Forms.Button();
@@ -76,9 +77,9 @@ namespace WeAreTheChampions
             // 
             // txtCreateTeam
             // 
-            this.txtCreateTeam.Location = new System.Drawing.Point(87, 27);
+            this.txtCreateTeam.Location = new System.Drawing.Point(97, 27);
             this.txtCreateTeam.Name = "txtCreateTeam";
-            this.txtCreateTeam.Size = new System.Drawing.Size(203, 30);
+            this.txtCreateTeam.Size = new System.Drawing.Size(220, 30);
             this.txtCreateTeam.TabIndex = 8;
             // 
             // label1
@@ -93,6 +94,8 @@ namespace WeAreTheChampions
             // dgvTeamCreate
             // 
             this.dgvTeamCreate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTeamCreate.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
             this.dgvTeamCreate.Location = new System.Drawing.Point(12, 215);
             this.dgvTeamCreate.MultiSelect = false;
             this.dgvTeamCreate.Name = "dgvTeamCreate";
@@ -103,6 +106,15 @@ namespace WeAreTheChampions
             this.dgvTeamCreate.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTeamCreate.Size = new System.Drawing.Size(870, 270);
             this.dgvTeamCreate.TabIndex = 5;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "TeamName";
+            this.Column1.HeaderText = "Team Name";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 125;
             // 
             // btnEditTeamName
             // 
@@ -163,5 +175,6 @@ namespace WeAreTheChampions
         private System.Windows.Forms.Button btnDeleteTeam;
         private System.Windows.Forms.Button btnCreateNewTeam;
         private System.Windows.Forms.TextBox txtCreateTeam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

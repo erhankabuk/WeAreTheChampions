@@ -29,10 +29,11 @@ namespace WeAreTheChampions
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabMatchSchedule = new System.Windows.Forms.TabPage();
             this.btnEditMatch = new System.Windows.Forms.Button();
@@ -40,14 +41,18 @@ namespace WeAreTheChampions
             this.btnAddNewMatch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvMatches = new System.Windows.Forms.DataGridView();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabTeams = new System.Windows.Forms.TabPage();
             this.btnAddNewTeam = new System.Windows.Forms.Button();
             this.dgvTeams = new System.Windows.Forms.DataGridView();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddTeamColor = new System.Windows.Forms.Button();
             this.btnAddPlayer = new System.Windows.Forms.Button();
             this.tabPlayers = new System.Windows.Forms.TabPage();
@@ -67,6 +72,11 @@ namespace WeAreTheChampions
             this.btnEditColor = new System.Windows.Forms.Button();
             this.btnDeleteColor = new System.Windows.Forms.Button();
             this.dgvColors = new System.Windows.Forms.DataGridView();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddColor = new System.Windows.Forms.Button();
             this.nudGreen = new System.Windows.Forms.NumericUpDown();
             this.nudBlue = new System.Windows.Forms.NumericUpDown();
@@ -76,11 +86,6 @@ namespace WeAreTheChampions
             this.label3 = new System.Windows.Forms.Label();
             this.txtColorName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabs.SuspendLayout();
             this.tabMatchSchedule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatches)).BeginInit();
@@ -189,6 +194,59 @@ namespace WeAreTheChampions
             this.dgvMatches.Size = new System.Drawing.Size(870, 352);
             this.dgvMatches.TabIndex = 0;
             // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "Team1TeamName";
+            dataGridViewCellStyle21.NullValue = "?";
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle21;
+            this.Column9.HeaderText = "Team1";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 125;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "Team2TeamName";
+            dataGridViewCellStyle22.NullValue = "?";
+            this.Column10.DefaultCellStyle = dataGridViewCellStyle22;
+            this.Column10.HeaderText = "Team2";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 125;
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "MatchDate";
+            dataGridViewCellStyle23.Format = "dd:MM:yyyy";
+            this.Column12.DefaultCellStyle = dataGridViewCellStyle23;
+            this.Column12.HeaderText = "Date";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 125;
+            // 
+            // Column13
+            // 
+            this.Column13.DataPropertyName = "MatchTime";
+            dataGridViewCellStyle24.Format = "HH:mm";
+            this.Column13.DefaultCellStyle = dataGridViewCellStyle24;
+            this.Column13.HeaderText = "Time";
+            this.Column13.MinimumWidth = 6;
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Width = 125;
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "MatchScore";
+            this.Column11.HeaderText = "Score";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 125;
+            // 
             // tabTeams
             // 
             this.tabTeams.BackColor = System.Drawing.Color.LightGray;
@@ -221,9 +279,8 @@ namespace WeAreTheChampions
             this.dgvTeams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
             this.Column5,
-            this.Column8,
             this.Column6,
-            this.Column7});
+            this.Column8});
             this.dgvTeams.Location = new System.Drawing.Point(12, 146);
             this.dgvTeams.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvTeams.MultiSelect = false;
@@ -254,32 +311,23 @@ namespace WeAreTheChampions
             this.Column5.ReadOnly = true;
             this.Column5.Width = 125;
             // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "TeamColors";
-            this.Column8.HeaderText = "Team Colors";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 125;
-            // 
             // Column6
             // 
-            this.Column6.DataPropertyName = "Players";
+            this.Column6.DataPropertyName = "PlayerList";
             this.Column6.HeaderText = "Team Players";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             this.Column6.Width = 125;
             // 
-            // Column7
+            // Column8
             // 
-            this.Column7.DataPropertyName = "Matches";
-            this.Column7.HeaderText = "Matches";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 125;
+            this.Column8.DataPropertyName = "ColorList";
+            this.Column8.HeaderText = "Team Colors";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 125;
             // 
             // btnAddTeamColor
             // 
@@ -287,7 +335,7 @@ namespace WeAreTheChampions
             this.btnAddTeamColor.Name = "btnAddTeamColor";
             this.btnAddTeamColor.Size = new System.Drawing.Size(286, 55);
             this.btnAddTeamColor.TabIndex = 3;
-            this.btnAddTeamColor.Text = "Add Team Color";
+            this.btnAddTeamColor.Text = "Add-Remove Team Color";
             this.btnAddTeamColor.UseVisualStyleBackColor = true;
             this.btnAddTeamColor.Click += new System.EventHandler(this.btnAddTeamColor_Click);
             // 
@@ -328,9 +376,9 @@ namespace WeAreTheChampions
             this.chkTeamMember.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkTeamMember.Location = new System.Drawing.Point(304, 88);
             this.chkTeamMember.Name = "chkTeamMember";
-            this.chkTeamMember.Size = new System.Drawing.Size(171, 29);
+            this.chkTeamMember.Size = new System.Drawing.Size(282, 29);
             this.chkTeamMember.TabIndex = 6;
-            this.chkTeamMember.Text = "Changed Team";
+            this.chkTeamMember.Text = "Set Player as a Team Player";
             this.chkTeamMember.UseVisualStyleBackColor = true;
             this.chkTeamMember.Click += new System.EventHandler(this.chkTeamMember_Click);
             // 
@@ -340,7 +388,7 @@ namespace WeAreTheChampions
             this.cmbTeamList.FormattingEnabled = true;
             this.cmbTeamList.Location = new System.Drawing.Point(87, 86);
             this.cmbTeamList.Name = "cmbTeamList";
-            this.cmbTeamList.Size = new System.Drawing.Size(203, 33);
+            this.cmbTeamList.Size = new System.Drawing.Size(211, 33);
             this.cmbTeamList.TabIndex = 1;
             this.cmbTeamList.ValueMember = "TeamId";
             // 
@@ -404,8 +452,10 @@ namespace WeAreTheChampions
             // 
             // Column3
             // 
-            this.Column3.DataPropertyName = "TeamId";
-            this.Column3.HeaderText = "Team Id";
+            this.Column3.DataPropertyName = "PlayerTeamName";
+            dataGridViewCellStyle25.NullValue = "-";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle25;
+            this.Column3.HeaderText = "Team Name";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -432,9 +482,9 @@ namespace WeAreTheChampions
             // 
             // txtPlayerName
             // 
-            this.txtPlayerName.Location = new System.Drawing.Point(148, 33);
+            this.txtPlayerName.Location = new System.Drawing.Point(148, 31);
             this.txtPlayerName.Name = "txtPlayerName";
-            this.txtPlayerName.Size = new System.Drawing.Size(142, 30);
+            this.txtPlayerName.Size = new System.Drawing.Size(150, 30);
             this.txtPlayerName.TabIndex = 0;
             // 
             // label7
@@ -472,7 +522,7 @@ namespace WeAreTheChampions
             // btnEditColor
             // 
             this.btnEditColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditColor.Location = new System.Drawing.Point(299, 243);
+            this.btnEditColor.Location = new System.Drawing.Point(299, 166);
             this.btnEditColor.Name = "btnEditColor";
             this.btnEditColor.Size = new System.Drawing.Size(286, 55);
             this.btnEditColor.TabIndex = 5;
@@ -483,7 +533,7 @@ namespace WeAreTheChampions
             // btnDeleteColor
             // 
             this.btnDeleteColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeleteColor.Location = new System.Drawing.Point(591, 243);
+            this.btnDeleteColor.Location = new System.Drawing.Point(591, 166);
             this.btnDeleteColor.Name = "btnDeleteColor";
             this.btnDeleteColor.Size = new System.Drawing.Size(286, 55);
             this.btnDeleteColor.TabIndex = 6;
@@ -496,7 +546,13 @@ namespace WeAreTheChampions
             this.dgvColors.AllowUserToAddRows = false;
             this.dgvColors.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvColors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvColors.Location = new System.Drawing.Point(8, 306);
+            this.dgvColors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column7,
+            this.Column14,
+            this.Column15,
+            this.Column16,
+            this.Column17});
+            this.dgvColors.Location = new System.Drawing.Point(8, 252);
             this.dgvColors.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvColors.MultiSelect = false;
             this.dgvColors.Name = "dgvColors";
@@ -505,13 +561,58 @@ namespace WeAreTheChampions
             this.dgvColors.RowHeadersWidth = 51;
             this.dgvColors.RowTemplate.Height = 24;
             this.dgvColors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvColors.Size = new System.Drawing.Size(869, 177);
+            this.dgvColors.Size = new System.Drawing.Size(869, 231);
             this.dgvColors.TabIndex = 9;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "Id";
+            this.Column7.HeaderText = "Id";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 125;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "ColorName";
+            this.Column14.HeaderText = "Color Name";
+            this.Column14.MinimumWidth = 6;
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Width = 125;
+            // 
+            // Column15
+            // 
+            this.Column15.DataPropertyName = "Red";
+            this.Column15.HeaderText = "Red";
+            this.Column15.MinimumWidth = 6;
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Width = 125;
+            // 
+            // Column16
+            // 
+            this.Column16.DataPropertyName = "Green";
+            this.Column16.HeaderText = "Green";
+            this.Column16.MinimumWidth = 6;
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            this.Column16.Width = 125;
+            // 
+            // Column17
+            // 
+            this.Column17.DataPropertyName = "Blue";
+            this.Column17.HeaderText = "Blue";
+            this.Column17.MinimumWidth = 6;
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            this.Column17.Width = 125;
             // 
             // btnAddColor
             // 
             this.btnAddColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddColor.Location = new System.Drawing.Point(7, 243);
+            this.btnAddColor.Location = new System.Drawing.Point(7, 166);
             this.btnAddColor.Name = "btnAddColor";
             this.btnAddColor.Size = new System.Drawing.Size(286, 55);
             this.btnAddColor.TabIndex = 4;
@@ -522,46 +623,46 @@ namespace WeAreTheChampions
             // nudGreen
             // 
             this.nudGreen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudGreen.Location = new System.Drawing.Point(87, 140);
+            this.nudGreen.Location = new System.Drawing.Point(252, 106);
             this.nudGreen.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.nudGreen.Name = "nudGreen";
-            this.nudGreen.Size = new System.Drawing.Size(120, 30);
+            this.nudGreen.Size = new System.Drawing.Size(72, 30);
             this.nudGreen.TabIndex = 2;
             // 
             // nudBlue
             // 
             this.nudBlue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudBlue.Location = new System.Drawing.Point(86, 193);
+            this.nudBlue.Location = new System.Drawing.Point(413, 106);
             this.nudBlue.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.nudBlue.Name = "nudBlue";
-            this.nudBlue.Size = new System.Drawing.Size(120, 30);
+            this.nudBlue.Size = new System.Drawing.Size(72, 30);
             this.nudBlue.TabIndex = 3;
             // 
             // nudRed
             // 
             this.nudRed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudRed.Location = new System.Drawing.Point(87, 87);
+            this.nudRed.Location = new System.Drawing.Point(91, 106);
             this.nudRed.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.nudRed.Name = "nudRed";
-            this.nudRed.Size = new System.Drawing.Size(120, 30);
+            this.nudRed.Size = new System.Drawing.Size(72, 30);
             this.nudRed.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 89);
+            this.label5.Location = new System.Drawing.Point(7, 108);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 25);
             this.label5.TabIndex = 4;
@@ -570,7 +671,7 @@ namespace WeAreTheChampions
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 142);
+            this.label4.Location = new System.Drawing.Point(169, 108);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 25);
             this.label4.TabIndex = 3;
@@ -579,7 +680,7 @@ namespace WeAreTheChampions
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 195);
+            this.label3.Location = new System.Drawing.Point(330, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 25);
             this.label3.TabIndex = 2;
@@ -590,70 +691,17 @@ namespace WeAreTheChampions
             this.txtColorName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtColorName.Location = new System.Drawing.Point(135, 33);
             this.txtColorName.Name = "txtColorName";
-            this.txtColorName.Size = new System.Drawing.Size(142, 30);
+            this.txtColorName.Size = new System.Drawing.Size(158, 30);
             this.txtColorName.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(2, 36);
+            this.label2.Location = new System.Drawing.Point(2, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Color Name :";
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "Team1TeamName";
-            dataGridViewCellStyle1.NullValue = "?";
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column9.HeaderText = "Team1";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 125;
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "Team2TeamName";
-            dataGridViewCellStyle2.NullValue = "?";
-            this.Column10.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column10.HeaderText = "Team2";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Width = 125;
-            // 
-            // Column12
-            // 
-            this.Column12.DataPropertyName = "MatchDate";
-            dataGridViewCellStyle3.Format = "dd:MM:yyyy";
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column12.HeaderText = "Date";
-            this.Column12.MinimumWidth = 6;
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Width = 125;
-            // 
-            // Column13
-            // 
-            this.Column13.DataPropertyName = "MatchTime";
-            dataGridViewCellStyle4.Format = "HH:mm";
-            this.Column13.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column13.HeaderText = "Time";
-            this.Column13.MinimumWidth = 6;
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Width = 125;
-            // 
-            // Column11
-            // 
-            this.Column11.DataPropertyName = "MatchScore";
-            this.Column11.HeaderText = "Score";
-            this.Column11.MinimumWidth = 6;
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Width = 125;
             // 
             // Form1
             // 
@@ -720,23 +768,27 @@ namespace WeAreTheChampions
         private System.Windows.Forms.Button btnEditColor;
         private System.Windows.Forms.Button btnDeleteColor;
         private System.Windows.Forms.DataGridView dgvPlayers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button btnEditPlayer;
         private System.Windows.Forms.Button btnDeletePlayer;
         private System.Windows.Forms.ComboBox cmbTeamList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.CheckBox chkTeamMember;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
     }
 }
 

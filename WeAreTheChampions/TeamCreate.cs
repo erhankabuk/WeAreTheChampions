@@ -18,6 +18,7 @@ namespace WeAreTheChampions
         {
             this.db = db;
             InitializeComponent();
+            dgvTeamCreate.AutoGenerateColumns = false;
             LoadAllData();
         }
         /// <summary>
@@ -100,6 +101,14 @@ namespace WeAreTheChampions
             DataGridViewRow selected = dgvTeamCreate.SelectedRows[0];
             Team team = (Team)selected.DataBoundItem;
             db.Teams.Remove(team);
+
+            foreach (var item in db.Matches)
+            {
+                if (team.Id==null)
+                {
+                    db.Matches.Remove(item);
+                }
+            }            
             db.SaveChanges();
             dgvTeamCreate.DataSource = db.Teams.ToList();
         }

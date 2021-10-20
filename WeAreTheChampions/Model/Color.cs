@@ -15,6 +15,7 @@ namespace WeAreTheChampions.Model
         public int Green{ get; set; }
         public int Blue { get; set; }
         public ICollection<TeamColor> TeamColors { get; set; } = new HashSet<TeamColor>();
+        
         //public TeamColor TeamColors { get; set; }
 
         // colorları override edersin, datagridview'a Team'leri çekerken senin elinde o takıma ait Color Listesi teamcolors= 

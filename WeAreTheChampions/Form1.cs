@@ -19,10 +19,10 @@ namespace WeAreTheChampions
         {
             InitializeComponent();
             dgvMatches.AutoGenerateColumns = false;
-
             dgvPlayers.AutoGenerateColumns = false;
-            //dgvColors.AutoGenerateColumns = false;
+            dgvColors.AutoGenerateColumns = false;
             dgvTeams.AutoGenerateColumns = false;
+            
             LoadAllDatabase();
         }
         /// <summary>
@@ -35,6 +35,7 @@ namespace WeAreTheChampions
             dgvColors.DataSource = db.Colors.ToList();
             dgvTeams.DataSource = db.Teams.ToList();
             cmbTeamList.DataSource = db.Teams.ToList();
+           
         }
 
         /// <summary>
@@ -55,9 +56,9 @@ namespace WeAreTheChampions
             }
             db.Colors.Add(new Model.Color() { ColorName = colorName, Red = (int)nudRed.Value, Green = (int)nudGreen.Value, Blue = (int)nudBlue.Value });
             db.SaveChanges();
-            LoadAllDatabase();
+            dgvColors.DataSource = db.Colors.ToList();
+        }  
 
-        }
         /// <summary>
         /// Edit color
         /// </summary>        
@@ -220,9 +221,7 @@ namespace WeAreTheChampions
         {
             DataGridViewRow selectedPlayer = dgvPlayers.SelectedRows[0];
             Player deletedPlayer = (Player)selectedPlayer.DataBoundItem;
-            db.Players.Remove(deletedPlayer);
-            //datagridview focus.comboBox1.SelectedIndex = comboBox1.Items.Count - 1;
-            // dgvPlayers.=dgvPlayers.RowCount-1;
+            db.Players.Remove(deletedPlayer);            
             db.SaveChanges();
             dgvPlayers.DataSource = db.Players.ToList();
         }
@@ -233,36 +232,43 @@ namespace WeAreTheChampions
         {
             DataGridViewRow selectedMatch = dgvMatches.SelectedRows[0];
             Match match = (Match)selectedMatch.DataBoundItem;
+            //Team Silindiğinde MAtch da silinsin
             db.Matches.Remove(match);
             db.SaveChanges();
             dgvMatches.DataSource = db.Matches.ToList();
-        }     
+        }
         private void btnAddNewTeam_Click(object sender, EventArgs e)
         {
             TeamCreate frmTeam = new TeamCreate(db);
             frmTeam.ShowDialog();
+            dgvTeams.DataSource = db.Teams.ToList();
 
         }
         private void btnAddPlayer_Click(object sender, EventArgs e)
         {
             TeamPlayers frmAddNewPlayer = new TeamPlayers(db);
             frmAddNewPlayer.ShowDialog();
+            dgvTeams.DataSource = db.Teams.ToList();
         }
         private void btnAddTeamColor_Click(object sender, EventArgs e)
         {
             FrmTeamColor frmTeamColor = new FrmTeamColor(db);
             frmTeamColor.ShowDialog();
+            dgvTeams.DataSource = db.Teams.ToList();
         }
         private void btnAddNewMatch_Click(object sender, EventArgs e)
         {
             TeamMatches frmTeamMatches = new TeamMatches(db);
             frmTeamMatches.ShowDialog();
+            dgvMatches.DataSource = db.Matches.ToList();
         }
         private void btnEditMatch_Click(object sender, EventArgs e)
         {
             TeamEditMatch frmEditMatch = new TeamEditMatch(db);
-            frmEditMatch.ShowDialog();           
+            frmEditMatch.ShowDialog();
+            dgvMatches.DataSource = db.Matches.ToList();
         }
-
     }
 }
+
+

@@ -18,6 +18,7 @@ namespace WeAreTheChampions
         {
             this.db = db;
             InitializeComponent();
+            dgvEditMatch.AutoGenerateColumns = false;
             LoadAllData();
         }
         /// <summary>
@@ -25,7 +26,9 @@ namespace WeAreTheChampions
         /// </summary>
         private void LoadAllData()
         {
-            dgvEditMatch.DataSource = db.Matches.ToList();
+            dgvEditMatch.DataSource = db.Matches.OrderByDescending(x => x.MatchDate).ToList();
+            cmbTeam1inEditMatch.DataSource = db.Teams.ToList();
+            cmbTeam2inEditMatch.DataSource = db.Teams.ToList();
         }
 
         /// <summary>
@@ -42,26 +45,31 @@ namespace WeAreTheChampions
                 }
                 DataGridViewRow selectedMatch = dgvEditMatch.SelectedRows[0];
                 Match match = (Match)selectedMatch.DataBoundItem;
-                txtEditedTeam1.Text = match.Team1TeamName;
-                txtEditedTeam2.Text = match.Team2TeamName;
+                cmbTeam1inEditMatch.SelectedItem = match.Team1TeamName;
+                cmbTeam2inEditMatch.SelectedItem = match.Team2TeamName;
                 dtpDate.Value = match.MatchDate;
-                dtpTime.Value = match.MatchTime;                
+                dtpTime.Value = match.MatchTime;
                 btnEditMatch.Text = "Save Changes";
 
             }
             else
             {
+
                 DataGridViewRow selectedMatch = dgvEditMatch.SelectedRows[0];
                 Match match = (Match)selectedMatch.DataBoundItem;
-                //aynı takımların ilerde aynı saatte maçları varmı ifle bak
+                if (db.Matches.Any(x => x.Team1 == (Team)cmbTeam1inEditMatch.SelectedItem && x.Team2 == (Team)cmbTeam2inEditMatch.SelectedItem && x.MatchDate == dtpDate.Value && x.MatchTime == dtpTime.Value&&x.Score1== (int?)nudScore1.Value&&x.Score2== (int?)nudScore2.Value)) ;
+                {
+                    MessageBox.Show("This Match already existed.");
+                    return;
+                }
+                match.Team1 = (Team)cmbTeam1inEditMatch.SelectedItem;
+                match.Team2 = (Team)cmbTeam2inEditMatch.SelectedItem;
                 match.MatchDate = dtpDate.Value;
                 match.MatchTime = dtpTime.Value;
                 match.Score1 = (int?)nudScore1.Value;
                 match.Score2 = (int?)nudScore2.Value;
                 btnEditMatch.Text = "Edit Match";
                 db.SaveChanges();
-                txtEditedTeam1.Clear();
-                txtEditedTeam2.Clear();
                 dgvEditMatch.DataSource = db.Matches.ToList();
             }
         }

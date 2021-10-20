@@ -37,7 +37,7 @@ namespace WeAreTheChampions
         /// </summary>
         private void btnAddNewTeamColor_Click(object sender, EventArgs e)
         {
-            Model.Color color = (Model.Color)cmbColorinTeamsColor.SelectedItem;
+            Color color = (Color)cmbColorinTeamsColor.SelectedItem;
             Team team = (Team)cmbTeamsinTeamColors.SelectedItem;
             if (db.TeamColors.Any(x => (x.TeamId == team.Id) && (x.ColorId == color.Id)))
             {
@@ -101,5 +101,8 @@ namespace WeAreTheChampions
             db.SaveChanges();
             dgvTeamColors.DataSource = db.TeamColors.ToList();
         }
+
+
+
     }
 }

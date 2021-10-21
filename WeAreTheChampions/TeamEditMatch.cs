@@ -26,9 +26,7 @@ namespace WeAreTheChampions
         /// </summary>
         private void LoadAllData()
         {
-            dgvEditMatch.DataSource = db.Matches.OrderByDescending(x => x.MatchDate).ToList();
-            cmbTeam1inEditMatch.DataSource = db.Teams.ToList();
-            cmbTeam2inEditMatch.DataSource = db.Teams.ToList();
+            dgvEditMatch.DataSource = db.Matches.OrderByDescending(x => x.MatchTime.Hour ).ToList();            
         }
 
         /// <summary>
@@ -36,6 +34,12 @@ namespace WeAreTheChampions
         /// </summary>      
         private void btnEditMatch_Click(object sender, EventArgs e)
         {
+            DataGridViewRow selectedMatch = dgvEditMatch.SelectedRows[0];
+            Match match = (Match)selectedMatch.DataBoundItem;
+            txtTeam1inEditMatch.Text = match.Team1TeamName;
+            txtTeam2inEditMatch.Text = match.Team2TeamName;
+            txtTeam1inEditMatch.Enabled = false;
+            txtTeam2inEditMatch.Enabled = false;
             if (btnEditMatch.Text == "Edit Match")
             {
                 if (dgvEditMatch.SelectedRows.Count == 0)
@@ -43,27 +47,18 @@ namespace WeAreTheChampions
                     MessageBox.Show("Please Select a Match");
                     return;
                 }
-                DataGridViewRow selectedMatch = dgvEditMatch.SelectedRows[0];
-                Match match = (Match)selectedMatch.DataBoundItem;
-                cmbTeam1inEditMatch.SelectedItem = match.Team1TeamName;
-                cmbTeam2inEditMatch.SelectedItem = match.Team2TeamName;
                 dtpDate.Value = match.MatchDate;
-                dtpTime.Value = match.MatchTime;
+                //dtpTime.Value = match.MatchTime;
+                dtpTime.Value = dtpDate.Value;
                 btnEditMatch.Text = "Save Changes";
-
             }
             else
-            {
-
-                DataGridViewRow selectedMatch = dgvEditMatch.SelectedRows[0];
-                Match match = (Match)selectedMatch.DataBoundItem;
-                if (db.Matches.Any(x => x.Team1 == (Team)cmbTeam1inEditMatch.SelectedItem && x.Team2 == (Team)cmbTeam2inEditMatch.SelectedItem && x.MatchDate == dtpDate.Value && x.MatchTime == dtpTime.Value&&x.Score1== (int?)nudScore1.Value&&x.Score2== (int?)nudScore2.Value)) ;
+            {                
+                if (db.Matches.Any(x => x.Team1.TeamName == txtTeam1inEditMatch.Text && x.Team2.TeamName == txtTeam2inEditMatch.Text && x.MatchDate.Day == dtpDate.Value.Day && x.MatchTime.Hour == dtpTime.Value.Hour && x.MatchTime.Minute == dtpTime.Value.Minute) ) 
                 {
                     MessageBox.Show("This Match already existed.");
                     return;
                 }
-                match.Team1 = (Team)cmbTeam1inEditMatch.SelectedItem;
-                match.Team2 = (Team)cmbTeam2inEditMatch.SelectedItem;
                 match.MatchDate = dtpDate.Value;
                 match.MatchTime = dtpTime.Value;
                 match.Score1 = (int?)nudScore1.Value;

@@ -17,27 +17,24 @@ namespace WeAreTheChampions.Model
         public virtual Team Team { get; set; }
 
         public string TeamColorList => $"{TeamColorNames()}";
-        public string TeamColorNames(){
+        public string TeamColorNames()
+        {
 
-            if (ColorId==null)
+            if (ColorId == null)
             {
                 return string.Empty;
             }
-            return Color.ColorName;        
-        }       
-        public string TeamName =>$"{TeamNameGetter()}";       
-       
+            return Color.ColorName;
+        }
+        public string TeamName => $"{TeamNameGetter()}";
+
         public string TeamNameGetter()
         {
-            if (Team==null)
-            {
+            if (Team == null)
                 return string.Empty;
-            }
             else
-            {
                 return Team.TeamName;
-            }
         }
-       // public string Colorlist() {        }
+
     }
 }

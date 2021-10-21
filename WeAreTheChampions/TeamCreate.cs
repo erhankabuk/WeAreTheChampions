@@ -21,6 +21,7 @@ namespace WeAreTheChampions
             dgvTeamCreate.AutoGenerateColumns = false;
             LoadAllData();
         }
+
         /// <summary>
         /// Load All Data
         /// </summary>
@@ -28,6 +29,7 @@ namespace WeAreTheChampions
         {
             dgvTeamCreate.DataSource = db.Teams.ToList();
         }
+
         /// <summary>
         /// Create a New Team with Team Name
         /// </summary>
@@ -50,6 +52,7 @@ namespace WeAreTheChampions
             db.SaveChanges();
             dgvTeamCreate.DataSource = db.Teams.ToList();
         }
+
         /// <summary>
         /// Edit Team Name
         /// </summary>      
@@ -93,6 +96,7 @@ namespace WeAreTheChampions
             }
 
         }
+
         /// <summary>
         /// Delete a Team
         /// </summary>
@@ -100,15 +104,12 @@ namespace WeAreTheChampions
         {
             DataGridViewRow selected = dgvTeamCreate.SelectedRows[0];
             Team team = (Team)selected.DataBoundItem;
-            db.Teams.Remove(team);
-
-            foreach (var item in db.Matches)
+            if (db.Matches.Any(x => x.Team1.Id == team.Id || x.Team2.Id == team.Id))
             {
-                if (team.Id==null)
-                {
-                    db.Matches.Remove(item);
-                }
+                MessageBox.Show($"{team.TeamName} set in a match. {team.TeamName} doesn't allow to be removed.");
+                return;
             }            
+            db.Teams.Remove(team);  
             db.SaveChanges();
             dgvTeamCreate.DataSource = db.Teams.ToList();
         }

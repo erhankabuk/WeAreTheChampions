@@ -29,10 +29,10 @@ namespace WeAreTheChampions
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TeamMatchMainTab = new System.Windows.Forms.TabControl();
             this.tabTeamMatch = new System.Windows.Forms.TabPage();
             this.dgvEditMatch = new System.Windows.Forms.DataGridView();
@@ -52,8 +52,8 @@ namespace WeAreTheChampions
             this.label1 = new System.Windows.Forms.Label();
             this.btnEditMatch = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.cmbTeam2inEditMatch = new System.Windows.Forms.ComboBox();
-            this.cmbTeam1inEditMatch = new System.Windows.Forms.ComboBox();
+            this.txtTeam1inEditMatch = new System.Windows.Forms.TextBox();
+            this.txtTeam2inEditMatch = new System.Windows.Forms.TextBox();
             this.TeamMatchMainTab.SuspendLayout();
             this.tabTeamMatch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEditMatch)).BeginInit();
@@ -79,8 +79,8 @@ namespace WeAreTheChampions
             // tabTeamMatch
             // 
             this.tabTeamMatch.BackColor = System.Drawing.Color.LightGray;
-            this.tabTeamMatch.Controls.Add(this.cmbTeam2inEditMatch);
-            this.tabTeamMatch.Controls.Add(this.cmbTeam1inEditMatch);
+            this.tabTeamMatch.Controls.Add(this.txtTeam2inEditMatch);
+            this.tabTeamMatch.Controls.Add(this.txtTeam1inEditMatch);
             this.tabTeamMatch.Controls.Add(this.dgvEditMatch);
             this.tabTeamMatch.Controls.Add(this.label4);
             this.tabTeamMatch.Controls.Add(this.label5);
@@ -126,8 +126,8 @@ namespace WeAreTheChampions
             // Column9
             // 
             this.Column9.DataPropertyName = "Team1TeamName";
-            dataGridViewCellStyle1.NullValue = "?";
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.NullValue = "?";
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column9.HeaderText = "Team1";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
@@ -137,8 +137,8 @@ namespace WeAreTheChampions
             // Column10
             // 
             this.Column10.DataPropertyName = "Team2TeamName";
-            dataGridViewCellStyle2.NullValue = "?";
-            this.Column10.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.NullValue = "?";
+            this.Column10.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column10.HeaderText = "Team2";
             this.Column10.MinimumWidth = 6;
             this.Column10.Name = "Column10";
@@ -148,8 +148,8 @@ namespace WeAreTheChampions
             // Column12
             // 
             this.Column12.DataPropertyName = "MatchDate";
-            dataGridViewCellStyle3.Format = "dd:MM:yyyy";
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Format = "dd:MM:yyyy";
+            this.Column12.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column12.HeaderText = "Date";
             this.Column12.MinimumWidth = 6;
             this.Column12.Name = "Column12";
@@ -159,8 +159,8 @@ namespace WeAreTheChampions
             // Column13
             // 
             this.Column13.DataPropertyName = "MatchTime";
-            dataGridViewCellStyle4.Format = "HH:mm";
-            this.Column13.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Format = "HH:mm";
+            this.Column13.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column13.HeaderText = "Time";
             this.Column13.MinimumWidth = 6;
             this.Column13.Name = "Column13";
@@ -282,27 +282,19 @@ namespace WeAreTheChampions
             this.label8.TabIndex = 4;
             this.label8.Text = "Score1 :";
             // 
-            // cmbTeam2inEditMatch
+            // txtTeam1inEditMatch
             // 
-            this.cmbTeam2inEditMatch.DisplayMember = "TeamName";
-            this.cmbTeam2inEditMatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTeam2inEditMatch.FormattingEnabled = true;
-            this.cmbTeam2inEditMatch.Location = new System.Drawing.Point(94, 88);
-            this.cmbTeam2inEditMatch.Name = "cmbTeam2inEditMatch";
-            this.cmbTeam2inEditMatch.Size = new System.Drawing.Size(203, 33);
-            this.cmbTeam2inEditMatch.TabIndex = 26;
-            this.cmbTeam2inEditMatch.ValueMember = "Id";
+            this.txtTeam1inEditMatch.Location = new System.Drawing.Point(98, 29);
+            this.txtTeam1inEditMatch.Name = "txtTeam1inEditMatch";
+            this.txtTeam1inEditMatch.Size = new System.Drawing.Size(199, 30);
+            this.txtTeam1inEditMatch.TabIndex = 25;
             // 
-            // cmbTeam1inEditMatch
+            // txtTeam2inEditMatch
             // 
-            this.cmbTeam1inEditMatch.DisplayMember = "TeamName";
-            this.cmbTeam1inEditMatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTeam1inEditMatch.FormattingEnabled = true;
-            this.cmbTeam1inEditMatch.Location = new System.Drawing.Point(94, 29);
-            this.cmbTeam1inEditMatch.Name = "cmbTeam1inEditMatch";
-            this.cmbTeam1inEditMatch.Size = new System.Drawing.Size(203, 33);
-            this.cmbTeam1inEditMatch.TabIndex = 25;
-            this.cmbTeam1inEditMatch.ValueMember = "Id";
+            this.txtTeam2inEditMatch.Location = new System.Drawing.Point(98, 91);
+            this.txtTeam2inEditMatch.Name = "txtTeam2inEditMatch";
+            this.txtTeam2inEditMatch.Size = new System.Drawing.Size(199, 30);
+            this.txtTeam2inEditMatch.TabIndex = 26;
             // 
             // TeamEditMatch
             // 
@@ -345,7 +337,7 @@ namespace WeAreTheChampions
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.ComboBox cmbTeam2inEditMatch;
-        private System.Windows.Forms.ComboBox cmbTeam1inEditMatch;
+        private System.Windows.Forms.TextBox txtTeam2inEditMatch;
+        private System.Windows.Forms.TextBox txtTeam1inEditMatch;
     }
 }

@@ -86,6 +86,7 @@ namespace WeAreTheChampions
             this.label3 = new System.Windows.Forms.Label();
             this.txtColorName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnHidePlayedMatch = new System.Windows.Forms.Button();
             this.tabs.SuspendLayout();
             this.tabMatchSchedule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatches)).BeginInit();
@@ -120,6 +121,7 @@ namespace WeAreTheChampions
             // tabMatchSchedule
             // 
             this.tabMatchSchedule.BackColor = System.Drawing.Color.LightGray;
+            this.tabMatchSchedule.Controls.Add(this.btnHidePlayedMatch);
             this.tabMatchSchedule.Controls.Add(this.btnEditMatch);
             this.tabMatchSchedule.Controls.Add(this.btnDeleteMatch);
             this.tabMatchSchedule.Controls.Add(this.btnAddNewMatch);
@@ -135,9 +137,9 @@ namespace WeAreTheChampions
             // 
             // btnEditMatch
             // 
-            this.btnEditMatch.Location = new System.Drawing.Point(300, 431);
+            this.btnEditMatch.Location = new System.Drawing.Point(227, 430);
             this.btnEditMatch.Name = "btnEditMatch";
-            this.btnEditMatch.Size = new System.Drawing.Size(286, 55);
+            this.btnEditMatch.Size = new System.Drawing.Size(213, 55);
             this.btnEditMatch.TabIndex = 2;
             this.btnEditMatch.Text = "Edit Match";
             this.btnEditMatch.UseVisualStyleBackColor = true;
@@ -145,9 +147,9 @@ namespace WeAreTheChampions
             // 
             // btnDeleteMatch
             // 
-            this.btnDeleteMatch.Location = new System.Drawing.Point(592, 431);
+            this.btnDeleteMatch.Location = new System.Drawing.Point(446, 430);
             this.btnDeleteMatch.Name = "btnDeleteMatch";
-            this.btnDeleteMatch.Size = new System.Drawing.Size(286, 55);
+            this.btnDeleteMatch.Size = new System.Drawing.Size(213, 55);
             this.btnDeleteMatch.TabIndex = 3;
             this.btnDeleteMatch.Text = "Delete Match";
             this.btnDeleteMatch.UseVisualStyleBackColor = true;
@@ -157,7 +159,7 @@ namespace WeAreTheChampions
             // 
             this.btnAddNewMatch.Location = new System.Drawing.Point(8, 431);
             this.btnAddNewMatch.Name = "btnAddNewMatch";
-            this.btnAddNewMatch.Size = new System.Drawing.Size(286, 55);
+            this.btnAddNewMatch.Size = new System.Drawing.Size(213, 55);
             this.btnAddNewMatch.TabIndex = 1;
             this.btnAddNewMatch.Text = "Add New Match";
             this.btnAddNewMatch.UseVisualStyleBackColor = true;
@@ -193,6 +195,7 @@ namespace WeAreTheChampions
             this.dgvMatches.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMatches.Size = new System.Drawing.Size(870, 352);
             this.dgvMatches.TabIndex = 0;
+            this.dgvMatches.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatches_CellContentClick);
             // 
             // Column9
             // 
@@ -376,11 +379,11 @@ namespace WeAreTheChampions
             this.chkTeamMember.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkTeamMember.Location = new System.Drawing.Point(304, 88);
             this.chkTeamMember.Name = "chkTeamMember";
-            this.chkTeamMember.Size = new System.Drawing.Size(282, 29);
+            this.chkTeamMember.Size = new System.Drawing.Size(248, 29);
             this.chkTeamMember.TabIndex = 6;
-            this.chkTeamMember.Text = "Set Player as a Team Player";
+            this.chkTeamMember.Text = "Select a Team for Player";
             this.chkTeamMember.UseVisualStyleBackColor = true;
-            this.chkTeamMember.Click += new System.EventHandler(this.chkTeamMember_Click);
+            this.chkTeamMember.CheckedChanged += new System.EventHandler(this.chkTeamMember_CheckedChanged);
             // 
             // cmbTeamList
             // 
@@ -703,6 +706,16 @@ namespace WeAreTheChampions
             this.label2.TabIndex = 0;
             this.label2.Text = "Color Name :";
             // 
+            // btnHidePlayedMatch
+            // 
+            this.btnHidePlayedMatch.Location = new System.Drawing.Point(665, 431);
+            this.btnHidePlayedMatch.Name = "btnHidePlayedMatch";
+            this.btnHidePlayedMatch.Size = new System.Drawing.Size(213, 55);
+            this.btnHidePlayedMatch.TabIndex = 4;
+            this.btnHidePlayedMatch.Text = "Hide Played Matches";
+            this.btnHidePlayedMatch.UseVisualStyleBackColor = true;
+            this.btnHidePlayedMatch.Click += new System.EventHandler(this.btnHidePlayedMatch_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -789,6 +802,7 @@ namespace WeAreTheChampions
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.Button btnHidePlayedMatch;
     }
 }
 

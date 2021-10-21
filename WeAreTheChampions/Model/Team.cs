@@ -30,16 +30,12 @@ namespace WeAreTheChampions.Model
         public string TeamPlayerList()
         {
             List<string> list = new List<string>();
-
-           
             foreach (var item in Players)
             {
                 list.Add(item.PlayerinTeam);
             }
             return string.Join(", ", list);
         }
-
-
 
         public string ColorList => $"{TeamColorList()}";
         public string PlayerList => $"{TeamPlayerList()}";

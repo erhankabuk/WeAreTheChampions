@@ -21,6 +21,7 @@ namespace WeAreTheChampions
             dgvCreateMatch.AutoGenerateColumns = false;
             LoadAllData();
         }
+
         /// <summary>
         /// Load All Data
         /// </summary>
@@ -30,6 +31,7 @@ namespace WeAreTheChampions
             cmbTeam1inMatch.DataSource = db.Teams.ToList();
             cmbTeam2inMatch.DataSource = db.Teams.ToList();
         }
+
         /// <summary>
         /// Add a new Match
         /// </summary>
@@ -49,14 +51,7 @@ namespace WeAreTheChampions
             {
                 MessageBox.Show("This Match is already existed22.");
                 return;
-            }
-            /*
-            if (db.Matches.Any(x => x.Team1.TeamName == team1.TeamName&&x.Team2.TeamName==team2.TeamName&&x.MatchDate==matchDate&&x.MatchTime==matchTime));
-            {
-                MessageBox.Show("This Match already existed.");
-                return;
-            }
-            */
+            }            
             db.Matches.Add(new Match()
             {
                 Team1 = team1,

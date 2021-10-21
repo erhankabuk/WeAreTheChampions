@@ -22,6 +22,7 @@ namespace WeAreTheChampions
             dgvTeamColors.AutoGenerateColumns = false;
             LoadAllData();
         }
+
         /// <summary>
         /// Load All Data
         /// </summary>
@@ -30,8 +31,8 @@ namespace WeAreTheChampions
             cmbColorinTeamsColor.DataSource = db.Colors.ToList();
             cmbTeamsinTeamColors.DataSource = db.Teams.ToList();
             dgvTeamColors.DataSource = db.TeamColors.ToList();
-
         }
+
         /// <summary>
         /// Add New Color To a Team
         /// </summary>
@@ -49,6 +50,7 @@ namespace WeAreTheChampions
             dgvTeamColors.DataSource = db.TeamColors.ToList();
 
         }
+
         /// <summary>
         /// Edit Team Color 
         /// </summary>       
@@ -90,6 +92,7 @@ namespace WeAreTheChampions
                 dgvTeamColors.DataSource = db.TeamColors.ToList();
             }
         }
+
         /// <summary>
         /// Delete a Team Color
         /// </summary>
@@ -101,7 +104,6 @@ namespace WeAreTheChampions
             db.SaveChanges();
             dgvTeamColors.DataSource = db.TeamColors.ToList();
         }
-
 
 
     }

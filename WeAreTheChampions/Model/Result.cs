@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace WeAreTheChampions.Model
 {
-        public enum Result
+    public enum Result
     {
-        Berabere =0 , Team1 = 1, Team2 = 2
-        //BelliDeğil = null kodda yazılacak 
+        Evenly = 0, Team1Wins = 1, Team2Wins = 2
     }
 }

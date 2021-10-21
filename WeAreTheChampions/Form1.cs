@@ -22,7 +22,7 @@ namespace WeAreTheChampions
             dgvPlayers.AutoGenerateColumns = false;
             dgvColors.AutoGenerateColumns = false;
             dgvTeams.AutoGenerateColumns = false;
-            
+
             LoadAllDatabase();
         }
         /// <summary>
@@ -35,7 +35,6 @@ namespace WeAreTheChampions
             dgvColors.DataSource = db.Colors.ToList();
             dgvTeams.DataSource = db.Teams.ToList();
             cmbTeamList.DataSource = db.Teams.ToList();
-           
         }
 
         /// <summary>
@@ -57,7 +56,7 @@ namespace WeAreTheChampions
             db.Colors.Add(new Model.Color() { ColorName = colorName, Red = (int)nudRed.Value, Green = (int)nudGreen.Value, Blue = (int)nudBlue.Value });
             db.SaveChanges();
             dgvColors.DataSource = db.Colors.ToList();
-        }  
+        }
 
         /// <summary>
         /// Edit color
@@ -112,6 +111,7 @@ namespace WeAreTheChampions
             db.SaveChanges();
             dgvColors.DataSource = db.Colors.ToList();
         }
+
         /// <summary>
         /// Delete a color
         /// </summary>        
@@ -123,15 +123,7 @@ namespace WeAreTheChampions
             db.SaveChanges();
             dgvColors.DataSource = db.Colors.ToList();
         }
-        /// <summary>
-        /// Check a Player does member of a Team
-        /// </summary>  
-        private void chkTeamMember_Click(object sender, EventArgs e)
-        {
-            if (chkTeamMember.Checked == false)
-                cmbTeamList.Enabled = false;
-            else cmbTeamList.Enabled = true;
-        }
+
         /// <summary>
         /// Add a new player and team
         /// </summary>
@@ -161,6 +153,7 @@ namespace WeAreTheChampions
             txtPlayerName.Clear();
             dgvPlayers.DataSource = db.Players.ToList();
         }
+
         /// <summary>
         /// Edit player name and team
         /// </summary>
@@ -181,11 +174,19 @@ namespace WeAreTheChampions
                 btnEditPlayer.Text = "Save Changes";
                 btnAddNewPlayer.Enabled = false;
                 btnDeletePlayer.Enabled = false;
+
             }
             else
             {
                 EditPlayer();
             }
+        }
+        private void chkTeamMember_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkTeamMember.Checked == false)
+                cmbTeamList.Enabled = false;
+            else
+                cmbTeamList.Enabled = true;
         }
         private void EditPlayer()
         {
@@ -204,16 +205,37 @@ namespace WeAreTheChampions
                 return;
             }
 
-            editingPlayer.PlayerName = editedPlayerName;
-            editingPlayer.TeamId = team.Id;
-            btnEditPlayer.Text = "Edit Player";
-            btnAddNewPlayer.Enabled = true;
-            btnDeletePlayer.Enabled = true;
-            dgvPlayers.Enabled = true;
-            db.SaveChanges();
-            txtPlayerName.Clear();
-            dgvPlayers.DataSource = db.Players.ToList();
+            if (chkTeamMember.Checked == false)
+            {
+                cmbTeamList.Enabled = false;
+                editingPlayer.PlayerName = editedPlayerName;
+                editingPlayer.TeamId = null;
+                btnEditPlayer.Text = "Edit Player";
+                btnAddNewPlayer.Enabled = true;
+                btnDeletePlayer.Enabled = true;
+                dgvPlayers.Enabled = true;
+                db.SaveChanges();
+                txtPlayerName.Clear();
+                dgvPlayers.DataSource = db.Players.ToList();
+
+            }
+            else
+            {
+                cmbTeamList.Enabled = true;
+                editingPlayer.PlayerName = editedPlayerName;
+                editingPlayer.TeamId = team.Id;
+                btnEditPlayer.Text = "Edit Player";
+                btnAddNewPlayer.Enabled = true;
+                btnDeletePlayer.Enabled = true;
+                dgvPlayers.Enabled = true;
+                db.SaveChanges();
+                txtPlayerName.Clear();
+                dgvPlayers.DataSource = db.Players.ToList();
+
+            }
+
         }
+
         /// <summary>
         /// Delete player by player name
         /// </summary>    
@@ -221,10 +243,11 @@ namespace WeAreTheChampions
         {
             DataGridViewRow selectedPlayer = dgvPlayers.SelectedRows[0];
             Player deletedPlayer = (Player)selectedPlayer.DataBoundItem;
-            db.Players.Remove(deletedPlayer);            
+            db.Players.Remove(deletedPlayer);
             db.SaveChanges();
             dgvPlayers.DataSource = db.Players.ToList();
         }
+
         /// <summary>
         /// Delete a Match 
         /// </summary>
@@ -232,11 +255,30 @@ namespace WeAreTheChampions
         {
             DataGridViewRow selectedMatch = dgvMatches.SelectedRows[0];
             Match match = (Match)selectedMatch.DataBoundItem;
-            //Team Silindiğinde MAtch da silinsin
             db.Matches.Remove(match);
             db.SaveChanges();
             dgvMatches.DataSource = db.Matches.ToList();
         }
+
+        /// <summary>
+        /// Hide&Show Played Matches
+        /// </summary>
+        private void btnHidePlayedMatch_Click(object sender, EventArgs e)
+        {
+            if (btnHidePlayedMatch.Text == "Hide Played Matches")
+            {
+                dgvMatches.DataSource = null;
+                dgvMatches.DataSource = db.Matches.Except(db.Matches.Where(x => x.Score1 != null || x.Score2 != null)).ToList();
+                btnHidePlayedMatch.Text = "Show All Matches";
+            }
+            else
+            {
+                dgvMatches.DataSource = null;
+                dgvMatches.DataSource = db.Matches.ToList();
+                btnHidePlayedMatch.Text = "Hide Played Matches";
+            }
+        }
+
         private void btnAddNewTeam_Click(object sender, EventArgs e)
         {
             TeamCreate frmTeam = new TeamCreate(db);
@@ -268,6 +310,13 @@ namespace WeAreTheChampions
             frmEditMatch.ShowDialog();
             dgvMatches.DataSource = db.Matches.ToList();
         }
+        private void dgvMatches_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TeamEditMatch frmEditMatch = new TeamEditMatch(db);
+            frmEditMatch.ShowDialog();
+            dgvMatches.DataSource = db.Matches.ToList();
+        }
+
     }
 }
 

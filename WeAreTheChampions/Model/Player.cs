@@ -18,11 +18,10 @@ namespace WeAreTheChampions.Model
 
         public string PlayerTeam()
         {
-
-            return TeamId == null ? string.Empty : Team.TeamName;
+            return TeamId == null || Team == null ? string.Empty : Team.TeamName;
         }
 
-       public string PlayerinTeams()
+        public string PlayerinTeams()
         {
             return TeamId == null ? string.Empty : PlayerName;
         }

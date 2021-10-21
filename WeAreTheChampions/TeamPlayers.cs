@@ -22,18 +22,21 @@ namespace WeAreTheChampions
             LoadAllData();
         }
 
+        /// <summary>
+        /// Load All Data
+        /// </summary>
         private void LoadAllData()
         {
             dgvTeamPlayersinTeam.DataSource = db.Players.ToList();
-
-            List<Player> list = new List<Player>();
-            //List<Player> list2 = new List<Player>();
-
+            List<Player> list = new List<Player>();           
             list.AddRange(db.Players.Where(x => x.TeamId ==null));
             cmbPlayersinTeamPlayers.DataSource = list;
             cmbTeamsinTeamPlayers.DataSource = db.Teams.ToList();
         }
 
+        /// <summary>
+        /// Add Player to a Team
+        /// </summary>
         private void btnAddNewPlayer_Click(object sender, EventArgs e)
         {
            
@@ -43,6 +46,10 @@ namespace WeAreTheChampions
             db.SaveChanges();
             dgvTeamPlayersinTeam.DataSource = db.Players.ToList();
         }
+
+        /// <summary>
+        /// Remove a Player From a Team
+        /// </summary>
         private void btnRemoveTeamPlayer_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedPlayer = dgvTeamPlayersinTeam.SelectedRows[0];
@@ -56,6 +63,5 @@ namespace WeAreTheChampions
         }
        
 
-        
     }
 }

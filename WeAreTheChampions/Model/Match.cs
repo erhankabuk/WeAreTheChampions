@@ -13,18 +13,18 @@ namespace WeAreTheChampions.Model
         public int Id { get; set; }
         public DateTime MatchTime { get; set; }
         public DateTime MatchDate { get; set; }
-        public int? Team1Id { get; set; }//Nullable gereksiz 
+        public int? Team1Id { get; set; }
         public virtual Team Team1 { get; set; }
         public int? Team2Id { get; set; }
         public virtual Team Team2 { get; set; }
         public int? Score1 { get; set; } = -1;
         public int? Score2 { get; set; } = -1;
-        public Result? Result { get; set; }// "?" => nullable
+        public Result? Result { get; set; }
 
 
         public string Team1Name()
         {
-            if (Team1==null)
+            if (Team1 == null)
             {
                 return string.Empty;
             }
@@ -32,7 +32,7 @@ namespace WeAreTheChampions.Model
         }
         public string Team2Name()
         {
-            if (Team2==null)
+            if (Team2 == null)
             {
                 return string.Empty;
             }

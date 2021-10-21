@@ -93,6 +93,9 @@ namespace WeAreTheChampions
             // 
             // dgvTeamCreate
             // 
+            this.dgvTeamCreate.AllowUserToAddRows = false;
+            this.dgvTeamCreate.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTeamCreate.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvTeamCreate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTeamCreate.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
@@ -114,7 +117,6 @@ namespace WeAreTheChampions
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 125;
             // 
             // btnEditTeamName
             // 

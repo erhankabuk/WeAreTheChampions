@@ -26,7 +26,7 @@ namespace WeAreTheChampions
         /// </summary>
         private void LoadAllData()
         {
-            dgvEditMatch.DataSource = db.Matches.OrderByDescending(x => x.MatchTime.Hour ).ToList();            
+            dgvEditMatch.DataSource = db.Matches.OrderByDescending(x => x.MatchTime.Hour).ToList();
         }
 
         /// <summary>
@@ -48,17 +48,17 @@ namespace WeAreTheChampions
                     return;
                 }
                 dtpDate.Value = match.MatchDate;
-                //dtpTime.Value = match.MatchTime;
                 dtpTime.Value = dtpDate.Value;
                 btnEditMatch.Text = "Save Changes";
             }
             else
-            {                
-                if (db.Matches.Any(x => x.Team1.TeamName == txtTeam1inEditMatch.Text && x.Team2.TeamName == txtTeam2inEditMatch.Text && x.MatchDate.Day == dtpDate.Value.Day && x.MatchTime.Hour == dtpTime.Value.Hour && x.MatchTime.Minute == dtpTime.Value.Minute) ) 
+            {
+                if (db.Matches.Any(x => x.Team1.TeamName == txtTeam1inEditMatch.Text && x.Team2.TeamName == txtTeam2inEditMatch.Text && x.MatchDate.Day == dtpDate.Value.Day && x.MatchTime.Hour == dtpTime.Value.Hour && x.MatchTime.Minute == dtpTime.Value.Minute))
                 {
                     MessageBox.Show("This Match already existed.");
                     return;
                 }
+
                 match.MatchDate = dtpDate.Value;
                 match.MatchTime = dtpTime.Value;
                 match.Score1 = (int?)nudScore1.Value;

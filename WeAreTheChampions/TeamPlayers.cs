@@ -16,7 +16,7 @@ namespace WeAreTheChampions
         WeAreTheChampionsContext db = new WeAreTheChampionsContext();
         public TeamPlayers(WeAreTheChampionsContext db)
         {
-            this.db = db;            
+            this.db = db;
             InitializeComponent();
             dgvTeamPlayersinTeam.AutoGenerateColumns = false;
             LoadAllData();
@@ -28,8 +28,8 @@ namespace WeAreTheChampions
         private void LoadAllData()
         {
             dgvTeamPlayersinTeam.DataSource = db.Players.ToList();
-            List<Player> list = new List<Player>();           
-            list.AddRange(db.Players.Where(x => x.TeamId ==null));
+            List<Player> list = new List<Player>();
+            list.AddRange(db.Players.Where(x => x.TeamId == null));
             cmbPlayersinTeamPlayers.DataSource = list;
             cmbTeamsinTeamPlayers.DataSource = db.Teams.ToList();
         }
@@ -39,10 +39,9 @@ namespace WeAreTheChampions
         /// </summary>
         private void btnAddNewPlayer_Click(object sender, EventArgs e)
         {
-           
-            Player player = (Player)cmbPlayersinTeamPlayers.SelectedItem;                       
+            Player player = (Player)cmbPlayersinTeamPlayers.SelectedItem;
             Team team = (Team)cmbTeamsinTeamPlayers.SelectedItem;
-            player.TeamId = team.Id;           
+            player.TeamId = team.Id;
             db.SaveChanges();
             dgvTeamPlayersinTeam.DataSource = db.Players.ToList();
         }
@@ -61,7 +60,7 @@ namespace WeAreTheChampions
             cmbPlayersinTeamPlayers.DataSource = list;
             dgvTeamPlayersinTeam.DataSource = db.Players.ToList();
         }
-       
+
 
     }
 }

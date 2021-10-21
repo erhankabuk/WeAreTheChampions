@@ -29,6 +29,8 @@ namespace WeAreTheChampions
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TeamMatchMainTab = new System.Windows.Forms.TabControl();
             this.tabTeamMatch = new System.Windows.Forms.TabPage();
             this.dtpTime = new System.Windows.Forms.DateTimePicker();
@@ -130,6 +132,9 @@ namespace WeAreTheChampions
             // 
             // dgvCreateMatch
             // 
+            this.dgvCreateMatch.AllowUserToAddRows = false;
+            this.dgvCreateMatch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCreateMatch.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvCreateMatch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCreateMatch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -137,6 +142,7 @@ namespace WeAreTheChampions
             this.Column3,
             this.Column4,
             this.Column5});
+            this.dgvCreateMatch.EnableHeadersVisualStyles = false;
             this.dgvCreateMatch.Location = new System.Drawing.Point(12, 221);
             this.dgvCreateMatch.MultiSelect = false;
             this.dgvCreateMatch.Name = "dgvCreateMatch";
@@ -205,7 +211,6 @@ namespace WeAreTheChampions
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 125;
             // 
             // Column2
             // 
@@ -214,25 +219,26 @@ namespace WeAreTheChampions
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 125;
             // 
             // Column3
             // 
             this.Column3.DataPropertyName = "MatchDate";
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column3.HeaderText = "Date";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 125;
             // 
             // Column4
             // 
             this.Column4.DataPropertyName = "MatchTime";
+            dataGridViewCellStyle2.Format = "HH:mm";
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column4.HeaderText = "Time";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 125;
             // 
             // Column5
             // 
@@ -241,7 +247,6 @@ namespace WeAreTheChampions
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            this.Column5.Width = 125;
             // 
             // TeamMatches
             // 

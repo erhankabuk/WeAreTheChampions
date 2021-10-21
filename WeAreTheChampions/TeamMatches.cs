@@ -42,16 +42,16 @@ namespace WeAreTheChampions
             Team team1 = (Team)cmbTeam1inMatch.SelectedItem;
             Team team2 = (Team)cmbTeam2inMatch.SelectedItem;
 
-            if (team1==team2)
+            if (team1 == team2)
             {
                 MessageBox.Show("Please Select Different Teams");
                 return;
             }
-            if (db.Matches.Any(x=>x.Team1Id==team1.Id&&x.Team2Id==team2.Id&&x.MatchDate==matchDate.Date&&x.MatchTime==matchTime))
+            if (db.Matches.Any(x => x.Team1Id == team1.Id && x.Team2Id == team2.Id && x.MatchDate == matchDate.Date && x.MatchTime == matchTime))
             {
                 MessageBox.Show("This Match is already existed22.");
                 return;
-            }            
+            }
             db.Matches.Add(new Match()
             {
                 Team1 = team1,

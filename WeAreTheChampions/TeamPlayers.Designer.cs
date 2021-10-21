@@ -81,6 +81,8 @@ namespace WeAreTheChampions
             // dgvTeamPlayersinTeam
             // 
             this.dgvTeamPlayersinTeam.AllowUserToAddRows = false;
+            this.dgvTeamPlayersinTeam.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTeamPlayersinTeam.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvTeamPlayersinTeam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTeamPlayersinTeam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -103,7 +105,6 @@ namespace WeAreTheChampions
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 125;
             // 
             // Column2
             // 
@@ -112,7 +113,6 @@ namespace WeAreTheChampions
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 125;
             // 
             // cmbTeamsinTeamPlayers
             // 

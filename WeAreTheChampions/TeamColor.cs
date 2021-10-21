@@ -27,7 +27,7 @@ namespace WeAreTheChampions
         /// Load All Data
         /// </summary>
         private void LoadAllData()
-        {                      
+        {
             cmbColorinTeamsColor.DataSource = db.Colors.ToList();
             cmbTeamsinTeamColors.DataSource = db.Teams.ToList();
             dgvTeamColors.DataSource = db.TeamColors.ToList();
@@ -98,7 +98,7 @@ namespace WeAreTheChampions
         /// </summary>
         private void btnDeleteTeamColor_Click(object sender, EventArgs e)
         {
-            DataGridViewRow selectedTeamColor= dgvTeamColors.SelectedRows[0];
+            DataGridViewRow selectedTeamColor = dgvTeamColors.SelectedRows[0];
             TeamColor deletedTeamColor = (TeamColor)selectedTeamColor.DataBoundItem;
             db.TeamColors.Remove(deletedTeamColor);
             db.SaveChanges();

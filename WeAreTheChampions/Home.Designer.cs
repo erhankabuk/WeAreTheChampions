@@ -1,7 +1,7 @@
 ﻿
 namespace WeAreTheChampions
 {
-    partial class Form1
+    partial class Home
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,14 @@ namespace WeAreTheChampions
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabMatchSchedule = new System.Windows.Forms.TabPage();
+            this.btnHidePlayedMatch = new System.Windows.Forms.Button();
             this.btnEditMatch = new System.Windows.Forms.Button();
             this.btnDeleteMatch = new System.Windows.Forms.Button();
             this.btnAddNewMatch = new System.Windows.Forms.Button();
@@ -49,10 +50,6 @@ namespace WeAreTheChampions
             this.tabTeams = new System.Windows.Forms.TabPage();
             this.btnAddNewTeam = new System.Windows.Forms.Button();
             this.dgvTeams = new System.Windows.Forms.DataGridView();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddTeamColor = new System.Windows.Forms.Button();
             this.btnAddPlayer = new System.Windows.Forms.Button();
             this.tabPlayers = new System.Windows.Forms.TabPage();
@@ -61,9 +58,6 @@ namespace WeAreTheChampions
             this.btnEditPlayer = new System.Windows.Forms.Button();
             this.btnDeletePlayer = new System.Windows.Forms.Button();
             this.dgvPlayers = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddNewPlayer = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtPlayerName = new System.Windows.Forms.TextBox();
@@ -72,11 +66,6 @@ namespace WeAreTheChampions
             this.btnEditColor = new System.Windows.Forms.Button();
             this.btnDeleteColor = new System.Windows.Forms.Button();
             this.dgvColors = new System.Windows.Forms.DataGridView();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddColor = new System.Windows.Forms.Button();
             this.nudGreen = new System.Windows.Forms.NumericUpDown();
             this.nudBlue = new System.Windows.Forms.NumericUpDown();
@@ -86,7 +75,15 @@ namespace WeAreTheChampions
             this.label3 = new System.Windows.Forms.Label();
             this.txtColorName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnHidePlayedMatch = new System.Windows.Forms.Button();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabs.SuspendLayout();
             this.tabMatchSchedule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatches)).BeginInit();
@@ -135,6 +132,16 @@ namespace WeAreTheChampions
             this.tabMatchSchedule.TabIndex = 0;
             this.tabMatchSchedule.Text = "Match Schedule";
             // 
+            // btnHidePlayedMatch
+            // 
+            this.btnHidePlayedMatch.Location = new System.Drawing.Point(665, 431);
+            this.btnHidePlayedMatch.Name = "btnHidePlayedMatch";
+            this.btnHidePlayedMatch.Size = new System.Drawing.Size(213, 55);
+            this.btnHidePlayedMatch.TabIndex = 4;
+            this.btnHidePlayedMatch.Text = "Hide Played Matches";
+            this.btnHidePlayedMatch.UseVisualStyleBackColor = true;
+            this.btnHidePlayedMatch.Click += new System.EventHandler(this.btnHidePlayedMatch_Click);
+            // 
             // btnEditMatch
             // 
             this.btnEditMatch.Location = new System.Drawing.Point(227, 430);
@@ -177,6 +184,8 @@ namespace WeAreTheChampions
             // dgvMatches
             // 
             this.dgvMatches.AllowUserToAddRows = false;
+            this.dgvMatches.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMatches.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMatches.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMatches.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column9,
@@ -200,46 +209,42 @@ namespace WeAreTheChampions
             // Column9
             // 
             this.Column9.DataPropertyName = "Team1TeamName";
-            dataGridViewCellStyle21.NullValue = "?";
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.NullValue = "?";
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column9.HeaderText = "Team1";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
-            this.Column9.Width = 125;
             // 
             // Column10
             // 
             this.Column10.DataPropertyName = "Team2TeamName";
-            dataGridViewCellStyle22.NullValue = "?";
-            this.Column10.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.NullValue = "?";
+            this.Column10.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column10.HeaderText = "Team2";
             this.Column10.MinimumWidth = 6;
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
-            this.Column10.Width = 125;
             // 
             // Column12
             // 
             this.Column12.DataPropertyName = "MatchDate";
-            dataGridViewCellStyle23.Format = "dd:MM:yyyy";
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle3.Format = "dd:MM:yyyy";
+            this.Column12.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column12.HeaderText = "Date";
             this.Column12.MinimumWidth = 6;
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
-            this.Column12.Width = 125;
             // 
             // Column13
             // 
             this.Column13.DataPropertyName = "MatchTime";
-            dataGridViewCellStyle24.Format = "HH:mm";
-            this.Column13.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle4.Format = "HH:mm";
+            this.Column13.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column13.HeaderText = "Time";
             this.Column13.MinimumWidth = 6;
             this.Column13.Name = "Column13";
             this.Column13.ReadOnly = true;
-            this.Column13.Width = 125;
             // 
             // Column11
             // 
@@ -248,7 +253,6 @@ namespace WeAreTheChampions
             this.Column11.MinimumWidth = 6;
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
-            this.Column11.Width = 125;
             // 
             // tabTeams
             // 
@@ -278,9 +282,10 @@ namespace WeAreTheChampions
             // dgvTeams
             // 
             this.dgvTeams.AllowUserToAddRows = false;
+            this.dgvTeams.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTeams.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvTeams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTeams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column4,
             this.Column5,
             this.Column6,
             this.Column8});
@@ -295,42 +300,6 @@ namespace WeAreTheChampions
             this.dgvTeams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTeams.Size = new System.Drawing.Size(870, 342);
             this.dgvTeams.TabIndex = 4;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Id";
-            this.Column4.HeaderText = "Id";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 125;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "TeamName";
-            this.Column5.HeaderText = "Team Name";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 125;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "PlayerList";
-            this.Column6.HeaderText = "Team Players";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 125;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "ColorList";
-            this.Column8.HeaderText = "Team Colors";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 125;
             // 
             // btnAddTeamColor
             // 
@@ -419,9 +388,10 @@ namespace WeAreTheChampions
             // 
             this.dgvPlayers.AllowUserToAddRows = false;
             this.dgvPlayers.AllowUserToDeleteRows = false;
+            this.dgvPlayers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPlayers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPlayers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPlayers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
             this.Column2,
             this.Column3});
             this.dgvPlayers.Location = new System.Drawing.Point(12, 221);
@@ -434,35 +404,6 @@ namespace WeAreTheChampions
             this.dgvPlayers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPlayers.Size = new System.Drawing.Size(873, 264);
             this.dgvPlayers.TabIndex = 5;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Id";
-            this.Column1.HeaderText = "Id";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "PlayerName";
-            this.Column2.HeaderText = "Player Name";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "PlayerTeamName";
-            dataGridViewCellStyle25.NullValue = "-";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle25;
-            this.Column3.HeaderText = "Team Name";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 125;
             // 
             // btnAddNewPlayer
             // 
@@ -548,9 +489,10 @@ namespace WeAreTheChampions
             // 
             this.dgvColors.AllowUserToAddRows = false;
             this.dgvColors.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvColors.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvColors.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvColors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvColors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column7,
             this.Column14,
             this.Column15,
             this.Column16,
@@ -566,51 +508,6 @@ namespace WeAreTheChampions
             this.dgvColors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvColors.Size = new System.Drawing.Size(869, 231);
             this.dgvColors.TabIndex = 9;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "Id";
-            this.Column7.HeaderText = "Id";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 125;
-            // 
-            // Column14
-            // 
-            this.Column14.DataPropertyName = "ColorName";
-            this.Column14.HeaderText = "Color Name";
-            this.Column14.MinimumWidth = 6;
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Width = 125;
-            // 
-            // Column15
-            // 
-            this.Column15.DataPropertyName = "Red";
-            this.Column15.HeaderText = "Red";
-            this.Column15.MinimumWidth = 6;
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Width = 125;
-            // 
-            // Column16
-            // 
-            this.Column16.DataPropertyName = "Green";
-            this.Column16.HeaderText = "Green";
-            this.Column16.MinimumWidth = 6;
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            this.Column16.Width = 125;
-            // 
-            // Column17
-            // 
-            this.Column17.DataPropertyName = "Blue";
-            this.Column17.HeaderText = "Blue";
-            this.Column17.MinimumWidth = 6;
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
-            this.Column17.Width = 125;
             // 
             // btnAddColor
             // 
@@ -706,17 +603,81 @@ namespace WeAreTheChampions
             this.label2.TabIndex = 0;
             this.label2.Text = "Color Name :";
             // 
-            // btnHidePlayedMatch
+            // Column14
             // 
-            this.btnHidePlayedMatch.Location = new System.Drawing.Point(665, 431);
-            this.btnHidePlayedMatch.Name = "btnHidePlayedMatch";
-            this.btnHidePlayedMatch.Size = new System.Drawing.Size(213, 55);
-            this.btnHidePlayedMatch.TabIndex = 4;
-            this.btnHidePlayedMatch.Text = "Hide Played Matches";
-            this.btnHidePlayedMatch.UseVisualStyleBackColor = true;
-            this.btnHidePlayedMatch.Click += new System.EventHandler(this.btnHidePlayedMatch_Click);
+            this.Column14.DataPropertyName = "ColorName";
+            this.Column14.HeaderText = "Color Name";
+            this.Column14.MinimumWidth = 6;
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
             // 
-            // Form1
+            // Column15
+            // 
+            this.Column15.DataPropertyName = "Red";
+            this.Column15.HeaderText = "Red";
+            this.Column15.MinimumWidth = 6;
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            // 
+            // Column16
+            // 
+            this.Column16.DataPropertyName = "Green";
+            this.Column16.HeaderText = "Green";
+            this.Column16.MinimumWidth = 6;
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            // 
+            // Column17
+            // 
+            this.Column17.DataPropertyName = "Blue";
+            this.Column17.HeaderText = "Blue";
+            this.Column17.MinimumWidth = 6;
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "PlayerName";
+            this.Column2.HeaderText = "Player Name";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "PlayerTeamName";
+            dataGridViewCellStyle5.NullValue = "-";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column3.HeaderText = "Team Name";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "TeamName";
+            this.Column5.HeaderText = "Team Name";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "PlayerList";
+            this.Column6.HeaderText = "Team Players";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "ColorList";
+            this.Column8.HeaderText = "Team Colors";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -726,7 +687,7 @@ namespace WeAreTheChampions
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "We Are The Champions 1.0";
             this.tabs.ResumeLayout(false);
@@ -790,19 +751,16 @@ namespace WeAreTheChampions
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button btnHidePlayedMatch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
-        private System.Windows.Forms.Button btnHidePlayedMatch;
     }
 }
 

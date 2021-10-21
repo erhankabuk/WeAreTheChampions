@@ -7,7 +7,7 @@ using WeAreTheChampions.Model;
 
 namespace WeAreTheChampions
 {
-    
+
     static class Program
     {
         /// <summary>
@@ -16,11 +16,9 @@ namespace WeAreTheChampions
         [STAThread]
         static void Main()
         {
-        //WeAreTheChampionsContext db = new WeAreTheChampionsContext();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FrmTeamColor(db));
-            Application.Run(new Form1());
+            Application.Run(new Home());
 
         }
 

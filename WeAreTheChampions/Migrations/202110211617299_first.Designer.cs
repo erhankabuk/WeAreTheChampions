@@ -7,13 +7,13 @@ namespace WeAreTheChampions.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class seventh : IMigrationMetadata
+    public sealed partial class first : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(seventh));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(first));
         
         string IMigrationMetadata.Id
         {
-            get { return "202110191146347_seventh"; }
+            get { return "202110211617299_first"; }
         }
         
         string IMigrationMetadata.Source

@@ -11,11 +11,11 @@ using WeAreTheChampions.Model;
 
 namespace WeAreTheChampions
 {
-    public partial class Form1 : Form
+    public partial class Home : Form
     {
         WeAreTheChampionsContext db = new WeAreTheChampionsContext();
 
-        public Form1()
+        public Home()
         {
             InitializeComponent();
             dgvMatches.AutoGenerateColumns = false;

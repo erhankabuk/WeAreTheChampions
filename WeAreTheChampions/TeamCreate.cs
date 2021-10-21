@@ -108,8 +108,8 @@ namespace WeAreTheChampions
             {
                 MessageBox.Show($"{team.TeamName} set in a match. {team.TeamName} doesn't allow to be removed.");
                 return;
-            }            
-            db.Teams.Remove(team);  
+            }
+            db.Teams.Remove(team);
             db.SaveChanges();
             dgvTeamCreate.DataSource = db.Teams.ToList();
         }
